@@ -137,7 +137,7 @@ nav a:hover { color: white; }
 .mobile-menu .mobile-cta:hover { background: var(--orange-dark) !important; }
 .hero { position: relative; min-height: 90vh; display: flex; align-items: center; background: var(--navy); overflow: hidden; }
 .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11,42,74,0.66) 40%, rgba(11,42,74,0.38) 100%); z-index: 1; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(14,37,64,0.66) 40%, rgba(14,37,64,0.38) 100%); z-index: 1; }
 .hero h1 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 70px); line-height: 1.05; letter-spacing: 1px; margin-bottom: 14px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; }
 .header-phone-mobile { display: none; }
 .btn-primary { background: var(--orange); color: var(--navy); padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: 0.3px; transition: background 0.3s; display: inline-block; }
@@ -373,7 +373,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   .page-home .hero-content { padding: 24px 24px 56px; }
   .page-home .hero-grid { grid-template-columns: 1fr; gap: 0; }
   .page-home .hero h1 { display: none; }
-  .page-home .hero-overlay { background: linear-gradient(to bottom, rgba(11,42,74,0.08) 0%, rgba(11,42,74,0.82) 28%, rgba(11,42,74,0.82) 72%, rgba(11,42,74,0.08) 100%); }
+  .page-home .hero-overlay { background: linear-gradient(to bottom, rgba(14,37,64,0.08) 0%, rgba(14,37,64,0.82) 28%, rgba(14,37,64,0.82) 72%, rgba(14,37,64,0.08) 100%); }
   .page-home .hero-tagline { font-size: 22px; font-weight: 600; letter-spacing: 1px; margin-bottom: 24px; color: white; }
   .page-home .hero-services { grid-template-columns: 1fr 1fr; gap: 10px 16px; }
   .page-home .hero-services li { font-size: 14px; }
@@ -436,7 +436,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
    kept in the original source order so the cascade behaves identically */
 .page-counsel .hero { background: var(--navy); padding: 80px 48px; position: relative; overflow: hidden; min-height: revert; display: revert; align-items: revert; }
 .page-counsel .hero::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 40%; background: linear-gradient(135deg, transparent 0%, rgba(255,140,42,0.05) 100%); pointer-events: none; }
-.page-counsel .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11,42,74,0.95) 40%, rgba(11,42,74,0.55) 100%); z-index: 1; }
+.page-counsel .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(14,37,64,0.95) 40%, rgba(14,37,64,0.55) 100%); z-index: 1; }
 .page-counsel .hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
 .page-counsel .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange-text); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; }
 .page-counsel .hero h1 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: clamp(36px, 5vw, 60px); color: white; line-height: 1.1; margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s; letter-spacing: revert; }
@@ -514,7 +514,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-practices .mobile-form-panel { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 300; background: white; border-radius: 20px 20px 0 0; box-shadow: 0 -8px 40px rgba(0,0,0,0.28); padding: 24px 24px 32px; max-height: 90vh; overflow-y: auto; overflow-x: hidden; transform: translateY(100%); transition: transform 0.35s cubic-bezier(0.32,0.72,0,1); }
 .page-practices .hero { position: relative; padding: 80px 48px; background: var(--navy); overflow: hidden; min-height: revert; display: revert; align-items: revert; }
 .page-practices .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: revert; }
-.page-practices .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11,42,74,0.92) 45%, rgba(11,42,74,0.55) 100%); z-index: revert; }
+.page-practices .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(14,37,64,0.92) 45%, rgba(14,37,64,0.55) 100%); z-index: revert; }
 .page-practices .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
 .page-practices .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange-text); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; }
 .page-practices .hero h1 { font-weight: 700; font-size: clamp(32px, 5vw, 58px); color: white; line-height: 1.1; margin-bottom: 16px; max-width: 700px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s; font-family: revert; letter-spacing: revert; }
@@ -593,7 +593,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-pricing .mobile-menu .mobile-cta { background: var(--orange); color: var(--navy) !important; margin: 16px 24px 0; border-radius: var(--r-pill); text-align: center; font-weight: 700 !important; padding: 14px 28px !important; border-bottom: none !important; }
 .page-pricing .hero { position: relative; padding: 80px 48px; background: var(--navy); overflow: hidden; min-height: revert; display: revert; align-items: revert; }
 .page-pricing .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: revert; }
-.page-pricing .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11,42,74,0.92) 45%, rgba(11,42,74,0.55) 100%); z-index: revert; }
+.page-pricing .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(14,37,64,0.92) 45%, rgba(14,37,64,0.55) 100%); z-index: revert; }
 .page-pricing .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
 .page-pricing .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange-text); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; }
 .page-pricing .hero h1 { font-weight: 700; font-size: clamp(36px, 5vw, 60px); color: white; line-height: 1.1; margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s; font-family: revert; letter-spacing: revert; }
@@ -666,7 +666,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-about .logo { color: white; text-decoration: none; font-weight: 700; font-size: 20px; letter-spacing: 4px; text-transform: uppercase; transition: color 0.3s; font-family: revert; }
 .page-about .mobile-form-panel { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 300; background: white; border-radius: 20px 20px 0 0; box-shadow: 0 -8px 40px rgba(0,0,0,0.28); padding: 24px 24px 32px; max-height: 90vh; overflow-y: auto; overflow-x: hidden; transform: translateY(100%); transition: transform 0.35s cubic-bezier(0.32,0.72,0,1); }
 .page-about .hero { position: relative; padding: 80px 48px; background: var(--navy); overflow: hidden; min-height: revert; display: revert; align-items: revert; }
-.page-about .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11,42,74,0.97) 45%, rgba(11,42,74,0.6) 100%); z-index: 1; }
+.page-about .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(14,37,64,0.97) 45%, rgba(14,37,64,0.6) 100%); z-index: 1; }
 .page-about .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
 .page-about .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange-text); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; }
 .page-about .hero h1 { font-weight: 700; font-size: clamp(36px, 5vw, 60px); color: white; line-height: 1.1; margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s; font-family: revert; letter-spacing: revert; }
@@ -769,7 +769,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-resources .mobile-menu .mobile-cta { background: var(--orange); color: var(--navy) !important; margin: 16px 24px 0; border-radius: var(--r-pill); text-align: center; font-weight: 700 !important; padding: 14px 28px !important; border-bottom: none !important; }
 .page-resources .hero { position: relative; padding: 96px 48px; background: var(--navy); overflow: hidden; min-height: revert; display: revert; align-items: revert; }
 .page-resources .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: revert; }
-.page-resources .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11,42,74,0.92) 45%, rgba(11,42,74,0.55) 100%); z-index: revert; }
+.page-resources .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(14,37,64,0.92) 45%, rgba(14,37,64,0.55) 100%); z-index: revert; }
 .page-resources .hero-overlay::after { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient( -45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 12px ); }
 .page-resources .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
 .page-resources .hero-inner::before { content: ''; display: block; width: 40px; height: 3px; background: var(--orange); margin-bottom: 20px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.05s; }
@@ -783,7 +783,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-resources .area-band-light::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, var(--orange), var(--orange-dark)); }
 .page-resources .area-band-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr; gap: 56px; align-items: center; position: relative; z-index: 1; }
 .page-resources .area-band-icon-wrap { display: flex; align-items: center; justify-content: center; width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); flex-shrink: 0; }
-.page-resources .area-band-icon-wrap.light { background: rgba(11,42,74,0.07); border: 1px solid rgba(11,42,74,0.12); }
+.page-resources .area-band-icon-wrap.light { background: rgba(14,37,64,0.07); border: 1px solid rgba(14,37,64,0.12); }
 .page-resources .area-band-emoji { font-size: 44px; line-height: 1; }
 .page-resources .area-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange-text); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
 .page-resources .area-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--orange); flex-shrink: 0; }
@@ -847,7 +847,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-lien .logo { color: white; text-decoration: none; font-weight: 700; font-size: 20px; letter-spacing: 4px; text-transform: uppercase; transition: color 0.3s; font-family: revert; }
 .page-lien .nav-cta { background: var(--orange); color: var(--navy) !important; padding: 9px 20px; border-radius: var(--r-pill); font-weight: 600 !important; transition: background 0.3s !important; white-space: revert; }
 .page-lien .hero { position: relative; padding: 96px 48px; background: var(--navy); overflow: hidden; min-height: revert; display: revert; align-items: revert; }
-.page-lien .hero-bg { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11,42,74,0.96) 45%, rgba(11,42,74,0.65) 100%), url("images/construction-lien-hero.jpg"); background-size: cover; background-position: center right; }
+.page-lien .hero-bg { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(14,37,64,0.96) 45%, rgba(14,37,64,0.65) 100%), url("images/construction-lien-hero.jpg"); background-size: cover; background-position: center right; }
 .page-lien .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
 .page-lien .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange-text); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; }
 .page-lien .hero h1 { font-weight: 700; font-size: clamp(32px, 5vw, 58px); color: white; line-height: 1.1; margin-bottom: 20px; max-width: 740px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s; font-family: revert; letter-spacing: revert; }
@@ -937,7 +937,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-conflicts header { background:#0e2540; padding:30px; text-align:center; display: revert; align-items: revert; justify-content: revert; position: revert; top: revert; z-index: revert; height: revert; box-shadow: revert; }
 .page-conflicts header a { color:white; text-decoration:none; font-weight:700; font-size:40px; letter-spacing:1px; transition: color 0.3s ease; }
 .page-conflicts header a:hover { color:#ff802f; }
-.page-conflicts .hero { background: linear-gradient(rgba(11,42,74,0.63), rgba(11,42,74,0.67)), url("images/travis-mcconnell-older.jpg"); background-size:cover; background-position:top center; color:white; padding:120px 20px; text-align:center; position:relative; min-height: revert; display: revert; align-items: revert; overflow: revert; }
+.page-conflicts .hero { background: linear-gradient(rgba(14,37,64,0.63), rgba(14,37,64,0.67)), url("images/travis-mcconnell-older.jpg"); background-size:cover; background-position:top center; color:white; padding:120px 20px; text-align:center; position:relative; min-height: revert; display: revert; align-items: revert; overflow: revert; }
 .page-conflicts .hero h1 { font-size:36px; max-width:900px; margin:auto; margin-bottom:20px; font-family: revert; font-weight: revert; line-height: revert; letter-spacing: revert; opacity: revert; animation: revert; }
 .page-conflicts .hero p { font-size:16px; max-width:650px; margin:auto; margin-bottom:30px; }
 .page-conflicts .cta { background:#ff802f; color:var(--navy); padding:14px 30px; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block; animation: pulse 4s ease-in-out infinite; }
@@ -973,7 +973,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-eviction header { background: #0e2540; padding: 30px; text-align: center; display: revert; align-items: revert; justify-content: revert; position: revert; top: revert; z-index: revert; height: revert; box-shadow: revert; }
 .page-eviction header a { color: white; text-decoration: none; font-weight: 700; font-size: 40px; letter-spacing: 1px; transition: color 0.3s ease; }
 .page-eviction header a:hover { color: #ff802f; }
-.page-eviction .hero { background: linear-gradient(rgba(11,42,74,0.63), rgba(11,42,74,0.67)), url("images/travis-mcconnell-older.jpg"); background-size: cover; background-position: top center; color: white; padding: 120px 20px; text-align: center; position: relative; min-height: revert; display: revert; align-items: revert; overflow: revert; }
+.page-eviction .hero { background: linear-gradient(rgba(14,37,64,0.63), rgba(14,37,64,0.67)), url("images/travis-mcconnell-older.jpg"); background-size: cover; background-position: top center; color: white; padding: 120px 20px; text-align: center; position: relative; min-height: revert; display: revert; align-items: revert; overflow: revert; }
 .page-eviction .hero h1 { font-size: 36px; max-width: 900px; margin: auto; margin-bottom: 20px; font-family: revert; font-weight: revert; line-height: revert; letter-spacing: revert; opacity: revert; animation: revert; }
 .page-eviction .hero p { font-size: 16px; max-width: 650px; margin: auto; margin-bottom: 30px; }
 .page-eviction .cta { background: #ff802f; color: var(--navy); padding: 14px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-block; animation: pulse 4s ease-in-out infinite; }
@@ -1031,7 +1031,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
    kept in the original source order so the cascade behaves identically */
 .page-lientimer .nav-cta { background: var(--orange); color: var(--navy) !important; padding: 9px 20px; border-radius: var(--r-pill); font-weight: 600 !important; transition: background 0.3s !important; white-space: revert; }
 .page-lientimer .hero { position: relative; padding: 80px 48px; background: var(--navy); overflow: hidden; min-height: revert; display: revert; align-items: revert; }
-.page-lientimer .hero-bg { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11,42,74,0.97) 45%, rgba(11,42,74,0.6) 100%), url("images/construction-lien-hero.jpg"); background-size: cover; background-position: center right; }
+.page-lientimer .hero-bg { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(14,37,64,0.97) 45%, rgba(14,37,64,0.6) 100%), url("images/construction-lien-hero.jpg"); background-size: cover; background-position: center right; }
 .page-lientimer .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
 .page-lientimer .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange-text); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; }
 .page-lientimer .hero h1 { font-weight: 700; font-size: clamp(32px, 5vw, 58px); color: white; line-height: 1.1; margin-bottom: 16px; max-width: 700px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s; font-family: revert; letter-spacing: revert; }
@@ -1770,7 +1770,30 @@ footer,
 [class] [class] .btn-primary { color: var(--navy); }
 .page-home .rev-slide:nth-child(even) .rev-avatar { color: var(--navy); }
 .page-resources .cta-strip h2 { color: var(--navy); }
-.page-resources .cta-strip p  { color: rgba(11,42,74,0.84); }
+.page-resources .cta-strip p  { color: rgba(14,37,64,0.84); }
+
+/* The hero headline set READY in the brand orange over the video. Measured
+   against the poster frame it came to 2.9:1, just under the 3.0 that text that
+   size needs, and a playing video only makes it less predictable: a sunlit
+   frame moves the background under a fixed foreground colour.
+
+   Scrimming the video hard enough to rescue a light saturated orange would
+   have cost the photograph more than the two-tone headline was worth. The
+   brand sheet also puts this the other way round: orange "carries the ring,
+   rules, and buttons", it is an accent, not a colour for setting words in.
+   So the headline goes white, 6.9:1, and the orange returns above it as the
+   rule the brand sheet itself leads with. */
+.page-home .hero h1 .hl-ready { color: #fff; }
+
+.page-home .hero h1::before {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 4px;
+  background: var(--orange);
+  border-radius: 2px;
+  margin-bottom: 22px;
+}
 
 
 /* ==========================================================================
