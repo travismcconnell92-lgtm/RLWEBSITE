@@ -43,9 +43,20 @@
     while (h.firstChild) btn.appendChild(h.firstChild);
     h.appendChild(btn);
 
-    btn.addEventListener('click', function () {
+    function toggle() {
       var open = card.classList.toggle('open');
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    btn.addEventListener('click', function (e) { e.stopPropagation(); toggle(); });
+
+    /* The button is only as wide as the heading text, so tapping the icon or
+       the chevron did nothing. Make the whole collapsed row a target, while
+       leaving anything inside the body (links, buttons) alone. */
+    card.addEventListener('click', function (e) {
+      if (!MOBILE.matches) return;
+      if (e.target.closest('.rl-body')) return;
+      if (e.target.closest('a, button')) return;
+      toggle();
     });
 
     card.dataset.rlBuilt = '1';
@@ -74,8 +85,8 @@
   function buildList(list) {
     if (list.dataset.rlBuilt) return;
     var items = Array.prototype.slice.call(list.children);
-    var hidden = items.slice(4);
-    if (hidden.length < 2) { list.dataset.rlBuilt = 'skip'; return; }
+    var hidden = items.slice(3);            /* show three, hide the rest */
+    if (hidden.length < 1) { list.dataset.rlBuilt = 'skip'; return; }
 
     hidden.forEach(function (li) { li.classList.add('rl-extra'); });
 
@@ -150,7 +161,40 @@
     });
   }
 
+
+  /* ---- 4. Persistent contact bar --------------------------------------
+     Four pages shipped with their own bar wired to a slide-up form panel.
+     Every other page had nothing, so on a phone there was no way to reach
+     the firm without scrolling to the footer. Inject a bar where one is
+     missing rather than editing 140 files, and work out the path back to
+     the homepage from the stylesheet href so it is right at any depth. */
+
+  function sitePrefix() {
+    var l = document.querySelector('link[rel="stylesheet"][href*="styles.css"]');
+    if (!l) return '';
+    return l.getAttribute('href').split('styles.css')[0];
+  }
+
+  function contactBar() {
+    if (document.querySelector('.mobile-consult-bar')) return;   /* page has its own */
+    var r = sitePrefix();
+    var bar = document.createElement('div');
+    bar.className = 'mobile-consult-bar rl-bar';
+    bar.innerHTML =
+      '<a class="rl-bar-call" href="tel:4072582002" aria-label="Call Ready Legal">' +
+        '<span aria-hidden="true">\u260E</span> Call</a>' +
+      '<a class="rl-bar-cta" href="' + r + '#intake">Request a Consultation</a>';
+    document.body.appendChild(bar);
+  }
+
+  /* The footer's Contact link calls openMobileForm(), which only exists on the
+     pages that ship a form panel. Everywhere else it threw. */
+  if (typeof window.openMobileForm !== 'function') {
+    window.openMobileForm = function () { window.location.href = sitePrefix() + '#intake'; };
+  }
+
   function init() {
+    contactBar();
     heroVideo();
     var cards = document.querySelectorAll('.rl-expand');
     var lists = document.querySelectorAll('.rl-truncate');

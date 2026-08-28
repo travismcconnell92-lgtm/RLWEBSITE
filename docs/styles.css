@@ -17,11 +17,11 @@
 /* --- TOKENS ------------------------------------------------------------- */
 :root {
   /* brand */
-  --navy:        #0b2a4a;
-  --navy-mid:    #143a63;
-  --navy-light:  #1a456e;
-  --orange:      #ff8c2a;
-  --orange-dark: #e67a1f;
+  --navy:        #0e2540;
+  --navy-mid:    #163456;
+  --navy-light:  #1d4270;
+  --orange:      #ff802f;
+  --orange-dark: #e6701f;
   /* The brand orange is 2.3:1 on white, which fails WCAG AA for anything
      under 24px. Every small orange label on the site was failing it. This is
      the same hue darkened until it passes at 5.6:1, and it is used for TEXT
@@ -29,7 +29,7 @@
      variable is redefined back to --orange, where it already measures 6.3:1. */
   --orange-text: #a35200;
   --white:       #ffffff;
-  --off-white:   #f5f7fb;
+  --off-white:   #f4f6f8;
   --gray:        #e4e8f0;
   --text:        #1a2332;
   --text-light:  #5a6478;
@@ -82,19 +82,37 @@ body {
   }
 }
 
-/* --- KEYFRAMES ---------------------------------------------------------- */
-@keyframes fadeUp        { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes menuSlideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes trustScroll   { from { transform: translateX(0); }                to { transform: translateX(-50%); } }
 
+
+/* The fixed contact bar on phones needs the page to end above it. Scoping this
+   to pages that actually have the bar stops every other page from ending in
+   64px of empty scroll below the footer. */
+@media (max-width: 960px) {
+  body:has(.mobile-consult-bar) { padding-bottom: 80px; }
+}
+
+/* --- KEYFRAMES (collected from every page) --- */
+@keyframes menuSlideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes trustScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulseGreen {0%,100%{box-shadow:0 0 0 0 rgba(154,230,180,0);}50%{box-shadow:0 0 14px 5px rgba(154,230,180,0.45);}}
+@keyframes pulseBlue {0%,100%{box-shadow:0 0 0 0 rgba(144,205,244,0);}50%{box-shadow:0 0 14px 5px rgba(144,205,244,0.45);}}
+@keyframes pulseRed {0%,100%{box-shadow:0 0 0 0 rgba(254,178,178,0);}50%{box-shadow:0 0 14px 5px rgba(254,178,178,0.45);}}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+@keyframes atty-orbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
 
 
 /* --- SHARED COMPONENTS -------------------------------------------------- */
 
-:root { --navy: #0b2a4a; --navy-mid: #143a63; --orange: #ff8c2a; --orange-dark: #e67a1f; --white: #ffffff; --off-white: #f5f7fb; --gray: #e4e8f0; --text: #1a2332; --text-light: #5a6478; }
+:root { --navy: #0e2540; --navy-mid: #163456; --orange: #ff802f; --orange-dark: #e6701f; --white: #ffffff; --off-white: #f4f6f8; --gray: #e4e8f0; --text: #1a2332; --text-light: #5a6478; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
-body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); line-height: 1.7; overflow-x: hidden; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 header { background: var(--navy); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; height: 68px; box-shadow: 0 2px 24px rgba(0,0,0,0.25); }
 .logo { color: white; text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 4px; text-transform: uppercase; transition: color 0.3s; }
@@ -192,7 +210,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   header { padding: 0 24px; }
   .hero { min-height: calc(100dvh - 68px); align-items: center; }
   .mobile-consult-bar { display: flex !important; }
-  body { padding-bottom: 64px; }
   .trust-bar { padding: 14px 0; }
   .trust-track { flex-wrap: nowrap; justify-content: flex-start; width: max-content; gap: 0; animation: trustScroll 22s linear infinite; }
   .trust-item { margin-right: 40px; white-space: nowrap; }
@@ -271,7 +288,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-home .rec-badge:hover .rec-tip { opacity: 1; visibility: visible; }
 .page-home .rec-badge:focus .rec-tip { opacity: 1; visibility: visible; }
 .page-home .rec-badge:focus-within .rec-tip { opacity: 1; visibility: visible; }
-.page-home .rl-animation-section { display: block; background: #0b2a4a; padding: 48px 0; line-height: 1; }
+.page-home .rl-animation-section { display: block; background: #0e2540; padding: 48px 0; line-height: 1; }
 .page-home .rl-animation-inner { max-width: 1400px; margin: 0 auto; padding: 0 48px; display: flex; align-items: center; gap: 48px; }
 .page-home .rl-anim-side { flex: 0 0 180px; display: flex; flex-direction: column; justify-content: center; }
 .page-home .rl-anim-label { font-size: 10px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase; color: var(--orange-text); margin-bottom: 14px; display: block; }
@@ -917,13 +934,13 @@ footer { background: #07192c; padding: 56px 48px 28px; }
    ====================================================================== */
 /* page-only rules and deliberate differences from the shared rules,
    kept in the original source order so the cascade behaves identically */
-.page-conflicts header { background:#0b2a4a; padding:30px; text-align:center; display: revert; align-items: revert; justify-content: revert; position: revert; top: revert; z-index: revert; height: revert; box-shadow: revert; }
+.page-conflicts header { background:#0e2540; padding:30px; text-align:center; display: revert; align-items: revert; justify-content: revert; position: revert; top: revert; z-index: revert; height: revert; box-shadow: revert; }
 .page-conflicts header a { color:white; text-decoration:none; font-weight:700; font-size:40px; letter-spacing:1px; transition: color 0.3s ease; }
-.page-conflicts header a:hover { color:#ff8c2a; }
+.page-conflicts header a:hover { color:#ff802f; }
 .page-conflicts .hero { background: linear-gradient(rgba(11,42,74,0.63), rgba(11,42,74,0.67)), url("images/travis-mcconnell-older.jpg"); background-size:cover; background-position:top center; color:white; padding:120px 20px; text-align:center; position:relative; min-height: revert; display: revert; align-items: revert; overflow: revert; }
 .page-conflicts .hero h1 { font-size:36px; max-width:900px; margin:auto; margin-bottom:20px; font-family: revert; font-weight: revert; line-height: revert; letter-spacing: revert; opacity: revert; animation: revert; }
 .page-conflicts .hero p { font-size:16px; max-width:650px; margin:auto; margin-bottom:30px; }
-.page-conflicts .cta { background:#ff8c2a; color:var(--navy); padding:14px 30px; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block; animation: pulse 4s ease-in-out infinite; }
+.page-conflicts .cta { background:#ff802f; color:var(--navy); padding:14px 30px; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block; animation: pulse 4s ease-in-out infinite; }
 .page-conflicts .section { max-width:1100px; margin:auto; padding:80px 30px; }
 .page-conflicts .section h2 { font-size:34px; margin-bottom:30px; text-align:center; }
 .page-conflicts .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; margin-top:40px; }
@@ -931,10 +948,10 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-conflicts .box:hover { background:#f0f4fa; transform: translateY(-4px); }
 .page-conflicts .box h3 { margin-bottom:12px; font-size:20px; }
 .page-conflicts .icon { font-size:32px; margin-bottom:10px; }
-.page-conflicts .blue-section-fullwidth { background:#0b2a4a; color:white; padding:80px 20px; width:100%; text-align:center; }
+.page-conflicts .blue-section-fullwidth { background:#0e2540; color:white; padding:80px 20px; width:100%; text-align:center; }
 .page-conflicts .blue-section-fullwidth h2 { text-align: center; margin-bottom: 30px; }
 .page-conflicts .blue-section-fullwidth .grid { max-width:1100px; margin:auto; }
-.page-conflicts .blue-section-fullwidth .box { background:#143a63; }
+.page-conflicts .blue-section-fullwidth .box { background:#163456; }
 .page-conflicts .blue-section-fullwidth .box:hover { background:#1a4072; }
 .page-conflicts .form-wrapper { max-width:700px; margin:auto; background:white; padding:40px; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,.15); }
 .page-conflicts form { text-align:left; }
@@ -943,8 +960,8 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-conflicts input { width:100%; padding:12px; margin-top:6px; margin-bottom:18px; border:1px solid #ddd; border-radius:6px; font-size:14px; box-sizing:border-box; }
 .page-conflicts select { width:100%; padding:12px; margin-top:6px; margin-bottom:18px; border:1px solid #ddd; border-radius:6px; font-size:14px; box-sizing:border-box; }
 .page-conflicts textarea { width:100%; padding:12px; margin-top:6px; margin-bottom:18px; border:1px solid #ddd; border-radius:6px; font-size:14px; box-sizing:border-box; }
-.page-conflicts button { background:#ff8c2a; border:none; color:var(--navy); padding:14px; font-size:16px; border-radius:6px; cursor:pointer; font-weight:600; width:100%; }
-.page-conflicts button:hover { background:#e67a1f; }
+.page-conflicts button { background:#ff802f; border:none; color:var(--navy); padding:14px; font-size:16px; border-radius:6px; cursor:pointer; font-weight:600; width:100%; }
+.page-conflicts button:hover { background:#e6701f; }
 .page-conflicts footer { text-align:center; padding:40px 20px; font-size:13px; color:#555; max-width:900px; margin:auto; line-height:1.6; background: revert; }
 
 
@@ -953,13 +970,13 @@ footer { background: #07192c; padding: 56px 48px 28px; }
    ====================================================================== */
 /* page-only rules and deliberate differences from the shared rules,
    kept in the original source order so the cascade behaves identically */
-.page-eviction header { background: #0b2a4a; padding: 30px; text-align: center; display: revert; align-items: revert; justify-content: revert; position: revert; top: revert; z-index: revert; height: revert; box-shadow: revert; }
+.page-eviction header { background: #0e2540; padding: 30px; text-align: center; display: revert; align-items: revert; justify-content: revert; position: revert; top: revert; z-index: revert; height: revert; box-shadow: revert; }
 .page-eviction header a { color: white; text-decoration: none; font-weight: 700; font-size: 40px; letter-spacing: 1px; transition: color 0.3s ease; }
-.page-eviction header a:hover { color: #ff8c2a; }
+.page-eviction header a:hover { color: #ff802f; }
 .page-eviction .hero { background: linear-gradient(rgba(11,42,74,0.63), rgba(11,42,74,0.67)), url("images/travis-mcconnell-older.jpg"); background-size: cover; background-position: top center; color: white; padding: 120px 20px; text-align: center; position: relative; min-height: revert; display: revert; align-items: revert; overflow: revert; }
 .page-eviction .hero h1 { font-size: 36px; max-width: 900px; margin: auto; margin-bottom: 20px; font-family: revert; font-weight: revert; line-height: revert; letter-spacing: revert; opacity: revert; animation: revert; }
 .page-eviction .hero p { font-size: 16px; max-width: 650px; margin: auto; margin-bottom: 30px; }
-.page-eviction .cta { background: #ff8c2a; color: var(--navy); padding: 14px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-block; animation: pulse 4s ease-in-out infinite; }
+.page-eviction .cta { background: #ff802f; color: var(--navy); padding: 14px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-block; animation: pulse 4s ease-in-out infinite; }
 .page-eviction .section { max-width: 1100px; margin: auto; padding: 80px 30px; }
 .page-eviction .section h2 { font-size: 34px; margin-bottom: 30px; text-align: center; }
 .page-eviction .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
@@ -967,10 +984,10 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-eviction .box:hover { background: #f0f4fa; transform: translateY(-4px); }
 .page-eviction .box h3 { margin-bottom: 12px; font-size: 20px; }
 .page-eviction .icon { font-size: 32px; margin-bottom: 10px; }
-.page-eviction .blue-section-fullwidth { background: #0b2a4a; color: white; padding: 80px 20px; width: 100%; text-align: center; }
+.page-eviction .blue-section-fullwidth { background: #0e2540; color: white; padding: 80px 20px; width: 100%; text-align: center; }
 .page-eviction .blue-section-fullwidth h2 { text-align: center; margin-bottom: 30px; }
 .page-eviction .blue-section-fullwidth .grid { max-width: 1100px; margin: auto; }
-.page-eviction .blue-section-fullwidth .box { background: #143a63; }
+.page-eviction .blue-section-fullwidth .box { background: #163456; }
 .page-eviction .blue-section-fullwidth .box:hover { background: #1a4072; }
 .page-eviction .form-wrapper { max-width: 700px; margin: auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.15); }
 .page-eviction form { text-align: left; }
@@ -989,21 +1006,21 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-eviction .check-group { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; margin-bottom: 18px; }
 .page-eviction .check-group label { font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 10px; cursor: pointer; margin-bottom: 0; }
 .page-eviction .check-group input[type="checkbox"] { width: auto; margin: 0; padding: 0; flex-shrink: 0; }
-.page-eviction .conditional { display: none; background: #f8f9fc; border-left: 3px solid #ff8c2a; padding: 16px 20px 4px 20px; border-radius: 0 6px 6px 0; margin-bottom: 18px; margin-top: -8px; }
+.page-eviction .conditional { display: none; background: #f8f9fc; border-left: 3px solid #ff802f; padding: 16px 20px 4px 20px; border-radius: 0 6px 6px 0; margin-bottom: 18px; margin-top: -8px; }
 .page-eviction .conditional.show { display: block; }
-.page-eviction .info-note { background: #fff8f0; border: 1px solid #ff8c2a; border-radius: 6px; padding: 12px 16px; font-size: 13px; color: #7a3d00; margin-bottom: 18px; }
+.page-eviction .info-note { background: #fff8f0; border: 1px solid #ff802f; border-radius: 6px; padding: 12px 16px; font-size: 13px; color: #7a3d00; margin-bottom: 18px; }
 .page-eviction .info-note strong { display: block; margin-bottom: 4px; }
 .page-eviction .warning-note { background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 12px 16px; font-size: 13px; color: #664d03; margin-bottom: 18px; }
-.page-eviction .form-section-title { font-size: 13px; font-weight: 700; color: white; background: #0b2a4a; padding: 8px 14px; border-radius: 5px; margin: 30px 0 18px 0; text-transform: uppercase; letter-spacing: 0.8px; }
+.page-eviction .form-section-title { font-size: 13px; font-weight: 700; color: white; background: #0e2540; padding: 8px 14px; border-radius: 5px; margin: 30px 0 18px 0; text-transform: uppercase; letter-spacing: 0.8px; }
 .page-eviction .tenant-block { border: 1px solid #dde3ef; border-radius: 8px; padding: 18px 20px 4px 20px; margin-bottom: 14px; background: #fafbfd; position: relative; }
 .page-eviction .tenant-block-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-.page-eviction .tenant-block-header h4 { margin: 0; font-size: 13px; color: #0b2a4a; text-transform: uppercase; letter-spacing: 0.5px; }
+.page-eviction .tenant-block-header h4 { margin: 0; font-size: 13px; color: #0e2540; text-transform: uppercase; letter-spacing: 0.5px; }
 .page-eviction .remove-btn { background: transparent; border: 1px solid #cc3333; color: #cc3333; padding: 4px 12px; font-size: 12px; border-radius: 4px; cursor: pointer; font-weight: 600; width: auto; transition: all 0.2s ease; }
 .page-eviction .remove-btn:hover { background: #cc3333; color: white; }
-.page-eviction .add-btn { background: transparent; border: 2px solid #0b2a4a; color: #0b2a4a; padding: 9px 18px; font-size: 14px; border-radius: 6px; cursor: pointer; font-weight: 600; width: auto; margin-bottom: 22px; display: inline-block; transition: all 0.2s ease; }
-.page-eviction .add-btn:hover { background: #0b2a4a; color: white; }
-.page-eviction button[type="submit"] { background: #ff8c2a; border: none; color: var(--navy); padding: 14px; font-size: 16px; border-radius: 6px; cursor: pointer; font-weight: 600; width: 100%; margin-top: 12px; transition: background 0.2s ease; }
-.page-eviction button[type="submit"]:hover { background: #e67a1f; }
+.page-eviction .add-btn { background: transparent; border: 2px solid #0e2540; color: #0e2540; padding: 9px 18px; font-size: 14px; border-radius: 6px; cursor: pointer; font-weight: 600; width: auto; margin-bottom: 22px; display: inline-block; transition: all 0.2s ease; }
+.page-eviction .add-btn:hover { background: #0e2540; color: white; }
+.page-eviction button[type="submit"] { background: #ff802f; border: none; color: var(--navy); padding: 14px; font-size: 16px; border-radius: 6px; cursor: pointer; font-weight: 600; width: 100%; margin-top: 12px; transition: background 0.2s ease; }
+.page-eviction button[type="submit"]:hover { background: #e6701f; }
 .page-eviction footer { text-align: center; padding: 40px 20px; font-size: 13px; color: #555; max-width: 900px; margin: auto; line-height: 1.6; background: revert; }
 
 
@@ -1362,30 +1379,32 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   border-radius: var(--r-md); display: block; background: var(--navy);
 }
 
-.page-post .post-nav {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+.page-post .post-related {
   margin: 46px 0 0; padding-top: 30px; border-top: 1px solid var(--gray);
 }
-.page-post .post-nav a {
-  text-decoration: none; color: var(--navy); font-weight: 600; font-size: 14.5px;
-  line-height: 1.45; border: 1px solid var(--gray); border-radius: var(--r-md);
-  padding: 16px 18px; transition: border-color 0.25s, box-shadow 0.25s;
+.page-post .post-related > h2 {
+  font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--orange-text); margin: 0 0 18px;
 }
-.page-post .post-nav a:hover { border-color: var(--orange); box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
-.page-post .post-nav a span {
-  display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--text-light); margin-bottom: 7px;
+.page-post .post-related-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
 }
-.page-post .post-nav-next { text-align: right; grid-column: 2; }
-
-/* --- the closing call to action, shared by posts and the index ---------- */
-.post-cta { background: var(--navy); margin-top: 72px; padding: 66px 24px; }
-.post-cta-inner { max-width: 780px; margin: 0 auto; }
-.post-cta h2 { color: white; font-weight: 700; font-size: clamp(24px, 3vw, 32px); margin: 0 0 14px; }
-.post-cta p { color: rgba(255,255,255,0.72); font-weight: 300; line-height: 1.8; margin-bottom: 24px; }
-.post-cta-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-.post-cta-phone { color: white; font-weight: 700; font-size: 19px; text-decoration: none; }
-.post-cta-phone:hover { color: var(--orange-text); }
+.page-post .post-related-grid a {
+  display: flex; flex-direction: column; gap: 8px;
+  text-decoration: none; color: var(--navy);
+  border: 1px solid var(--gray); border-top: 3px solid var(--navy);
+  border-radius: var(--r-md); padding: 16px 18px 18px;
+  transition: border-top-color 0.3s, box-shadow 0.25s, transform 0.2s;
+}
+.page-post .post-related-grid a:hover {
+  border-top-color: var(--orange); box-shadow: 0 6px 20px rgba(0,0,0,0.07); transform: translateY(-2px);
+}
+.page-post .post-related-cat {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--orange-text);
+}
+.page-post .post-related-title { font-weight: 700; font-size: 15px; line-height: 1.4; }
+.page-post .post-related-date { font-size: 12px; color: var(--text-light); margin-top: auto; padding-top: 4px; }
 
 /* --- index -------------------------------------------------------------- */
 .page-articles .art-hero {
@@ -1437,7 +1456,11 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-articles .art-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .page-articles .art-thumb-blank {
   width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+}
+.page-articles .art-thumb-blank img {
+  width: 62px; height: 62px; display: block; opacity: 0.92;
 }
 .page-articles .art-text { padding: 20px 22px 24px; display: flex; flex-direction: column; flex: 1; }
 .page-articles .art-cat {
@@ -1452,13 +1475,14 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 @media (max-width: 960px) {
   .page-post .post-head { padding: 40px 0 22px; }
   .page-post .post-body { font-size: 16.5px; }
-  .page-post .post-nav { grid-template-columns: 1fr; }
-  .page-post .post-nav-next { grid-column: 1; text-align: left; }
-  .post-cta { margin-top: 52px; padding: 48px 22px; }
+  .page-post .post-related-grid { grid-template-columns: 1fr; gap: 12px; }
+  .page-post .post-related-grid a { padding: 13px 15px 14px; }
+  .page-post .post-related-title { font-size: 14.5px; }
   .page-articles .art-hero { padding: 56px 22px 46px; }
   .page-articles .art-grid { grid-template-columns: 1fr; gap: 16px; }
   .page-articles .art-card { flex-direction: row; align-items: stretch; }
   .page-articles .art-thumb { width: 116px; flex: 0 0 116px; aspect-ratio: auto; }
+  .page-articles .art-thumb-blank img { width: 46px; height: 46px; }
   .page-articles .art-text { padding: 14px 16px; }
   .page-articles .art-card h3 { font-size: 15px; margin-bottom: 8px; }
   .page-articles .art-filters { gap: 6px; padding-bottom: 22px; }
@@ -1482,13 +1506,23 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 /* The bona fide office disclosure. Rule 4-7.12(a)(2) calls for clear and
    conspicuous, so it sits directly under the heading rather than in the footer. */
 .area-disclosure {
-  max-width: 780px; margin: 0 auto; padding: 16px 24px;
-  background: var(--off-white); border-bottom: 1px solid var(--gray);
-  font-size: 13px; color: var(--text-light); line-height: 1.7;
+  max-width: 780px; margin: 0 auto; padding: 15px 18px 15px 46px;
+  position: relative;
+  background: #fff6ec; border: 1px solid #ffd9b8; border-left: 3px solid var(--orange);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  font-size: 13.5px; color: var(--navy); line-height: 1.65; font-weight: 500;
 }
-@media (min-width: 961px) {
-  .area-disclosure { border: 1px solid var(--gray); border-radius: var(--r-sm); margin-top: 28px; padding: 14px 20px; }
+/* a small mark so it reads as a notice rather than as body copy */
+.area-disclosure::before {
+  content: 'i';
+  position: absolute; left: 16px; top: 15px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--orange); color: var(--navy);
+  font-size: 12px; font-weight: 800; font-style: italic;
+  display: flex; align-items: center; justify-content: center;
 }
+@media (min-width: 961px) { .area-disclosure { margin-top: 28px; } }
+@media (max-width: 960px) { .area-disclosure { margin: 0 14px; border-radius: var(--r-sm); } }
 
 .page-area .area-body { max-width: 780px; margin: 0 auto; padding: 34px 24px 0; }
 .page-area .area-block { margin-bottom: 34px; }
@@ -1557,6 +1591,75 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   .page-areas .area-grid { grid-template-columns: 1fr; gap: 14px; }
   .page-areas .area-card { padding: 18px 20px 20px; }
   .page-areas .area-card h3 { font-size: 17px; }
+}
+
+
+/* ==========================================================================
+   ROUND-ONE MOBILE FIXES
+   ========================================================================== */
+@media (max-width: 960px) {
+
+  /* The Services Available grid keeps its desktop 1px gap background, so once
+     the cards became a 10px-gap flex column that background showed through as
+     stripes between them. */
+  .page-home .services-section .services-grid { background: none; border: none; gap: 10px; }
+
+  /* Counsel's Representative Services columns were still two-up on a phone,
+     which left them too narrow to read. */
+  .page-counsel .services-grid { grid-template-columns: 1fr; gap: 14px; }
+  .page-counsel .service-col { padding: 22px 20px; }
+}
+
+/* --- pricing ------------------------------------------------------------- */
+/* The awards strip is a static wrapped list here; the homepage runs it as a
+   ticker. Same treatment on both. */
+.page-pricing .trust-bar { overflow: hidden; }
+.page-pricing .trust-dup { display: none; }
+@media (max-width: 960px) {
+  .page-pricing .trust-bar { padding: 14px 0; }
+  .page-pricing .trust-track {
+    flex-wrap: nowrap; justify-content: flex-start; width: max-content; gap: 0;
+    animation: trustScroll 22s linear infinite;
+  }
+  .page-pricing .trust-dup { display: flex; }
+  .page-pricing .trust-item { padding: 0 18px; white-space: nowrap; }
+
+  /* Card headers were a stacked emoji, title and subtitle, which is three rows
+     of vertical space for what reads fine as one. */
+  .page-pricing .card-header {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-template-areas: "icon title" "icon sub";
+    align-items: center; column-gap: 13px; row-gap: 2px;
+    padding: 16px 18px;
+  }
+  .page-pricing .card-header .card-icon {
+    grid-area: icon; font-size: 26px; margin-bottom: 0; line-height: 1;
+  }
+  .page-pricing .card-header h3  { grid-area: title; margin-bottom: 0; font-size: 14.5px; }
+  .page-pricing .card-header p   { grid-area: sub; font-size: 11.5px; line-height: 1.5; }
+  .page-pricing .card-rate { padding: 16px 18px; }
+  .page-pricing .card-body { padding: 4px 18px 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-pricing .trust-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
+  .page-pricing .trust-dup { display: none !important; }
+}
+
+/* --- awards ticker: stop the sideways jiggle on iOS ----------------------
+   `overflow: hidden` makes the bar a scroll container, and an animated
+   transform inside one is what iOS Safari rubber-bands against while the page
+   scrolls. `clip` contains the overflow without the scroll container, and
+   containing paint keeps the repaint inside the bar. */
+.trust-bar, .page-about .trust-bar, .page-pricing .trust-bar, .page-home .trust-bar {
+  overflow: hidden;
+  overflow: clip;
+  contain: paint;
+}
+.trust-track {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 
@@ -1787,6 +1890,31 @@ footer,
   }
   .footer-brand { grid-column: 1 / -1; }
   .back-to-top { grid-column: 1 / -1; text-align: center; padding: 4px 0 18px; }
+
+  /* The tight line height, the visible Back to Top button and the wrapping
+     copyright were all written as `.page-home .x` on the old site, so every
+     other page rendered a footer half again as tall. They belong to the shared
+     footer, and the page-scoped copies are listed here only because a class
+     selector outranks a bare element one. */
+  .footer-col li { margin-bottom: 4px; line-height: 1.3; }
+  .footer-contact { line-height: 1.55; }
+  .footer-copy { white-space: normal; }
+  .back-to-top { display: block; }
+  .back-to-top button {
+    background: none; border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.55); font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    padding: 11px 26px; border-radius: var(--r-pill); cursor: pointer;
+    transition: border-color 0.25s, color 0.25s;
+  }
+  .back-to-top button:hover { border-color: var(--orange); color: var(--orange-text); }
+
+  .page-counsel footer, .page-practices footer, .page-pricing footer,
+  .page-about footer, .page-resources footer, .page-lien footer,
+  .page-lientimer footer { padding: 56px 24px 28px; }
+  .page-counsel .footer-top, .page-practices .footer-top, .page-pricing .footer-top,
+  .page-about .footer-top, .page-resources .footer-top, .page-lien .footer-top,
+  .page-lientimer .footer-top { grid-template-columns: 1fr 1fr; gap: 26px 20px; }
 }
 
 
@@ -1802,3 +1930,78 @@ footer,
 @media (max-width: 960px) {
   input, select, textarea { font-size: 16px !important; }
 }
+
+
+/* ==========================================================================
+   PERSISTENT CONTACT BAR
+   Four pages already ship their own bar wired to a slide-up form panel; this
+   styles the one site.js injects on every other page so they match.
+   ========================================================================== */
+.rl-bar { display: none; }
+@media (max-width: 960px) {
+  .rl-bar {
+    display: flex; gap: 10px; align-items: center;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 300;
+    background: var(--navy); padding: 10px 14px;
+    box-shadow: 0 -6px 24px rgba(0,0,0,0.28);
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  }
+  .rl-bar a {
+    text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.4px;
+    border-radius: var(--r-pill); padding: 12px 14px; text-align: center; white-space: nowrap;
+  }
+  .rl-bar-call {
+    color: white; border: 1px solid rgba(255,255,255,0.35); flex: 0 0 auto;
+  }
+  .rl-bar-cta {
+    background: var(--orange); color: var(--navy); flex: 1 1 auto;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+}
+
+
+/* ==========================================================================
+   AWARD TOOLTIPS ON A PHONE
+   The tooltip is 280px wide and was anchored to its badge, so a badge sitting
+   past the middle of the screen pushed it to x=487 on a 390px viewport. It is
+   hidden rather than removed, so it still inflated body scrollWidth and the
+   page shifted sideways under the finger. On mobile the badge stops being the
+   positioning context and the tip spans the badge row instead.
+   ========================================================================== */
+@media (max-width: 960px) {
+  .page-home .rec-badges { position: relative; }
+  .page-home .rec-badge { position: static; }
+  .page-home .rec-tip {
+    left: 0; right: 0; width: auto; transform: none;
+    bottom: auto; top: calc(100% + 10px);
+  }
+  .page-home .rec-tip::after { display: none; }
+}
+/* ==========================================================================
+   BRAND LOCKUP
+   The header used to retype the wordmark as letterspaced text, which the brand
+   sheet forbids ("use the supplied files, where the letterforms are outlined
+   and the tracking is fixed"). The supplied horizontal lockup is a wide, small-
+   cap design: at any height that fits a 68px header the type is around 7px cap
+   height, so it is set as large as the bar allows. Below 600px the lockup would
+   crowd the hamburger, so the header falls back to the icon on its own, which
+   is exactly what the kit's minimum-size rule prescribes.
+   ========================================================================== */
+.logo { display: inline-flex; align-items: center; line-height: 0; }
+.logo .logo-mark { height: 48px; width: auto; display: block; }
+.logo .logo-icon { display: none; height: 36px; width: auto; }
+.logo:hover .logo-mark, .logo:hover .logo-icon { opacity: 0.85; }
+.logo .logo-mark, .logo .logo-icon { transition: opacity 0.25s; }
+
+.footer-brand .logo { display: block; margin-bottom: 18px; }
+.footer-brand .logo .logo-mark { height: 46px; }
+
+@media (max-width: 600px) {
+  header .logo .logo-mark { display: none; }
+  header .logo .logo-icon { display: block; }
+}
+
+/* The old text logo carried a colour transition; the page-scoped copies of the
+   `.logo` rule still set font-size and letter-spacing, which do nothing to an
+   image but would resurface if the img ever failed to load. Neutralise them. */
+.logo { font-size: 0; letter-spacing: 0; }
