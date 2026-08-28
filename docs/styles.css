@@ -2016,3 +2016,52 @@ footer,
    letter-spacing. They do nothing to an image, but they would resurface as
    stray text if the SVG ever failed to load. */
 .logo { font-size: 0; letter-spacing: 0; }
+/* ==========================================================================
+   HOMEPAGE INTAKE PANEL: FROSTED GLASS ENTRANCE
+
+   The panel rendered clear for the first half-second and then snapped to
+   frosted the instant the entrance animation ended.
+
+   The cause is not a timing bug. `.hero-form` faded in from `opacity: 0`, and
+   an element whose opacity is below 1 becomes a *backdrop root*: it cuts its
+   descendants off from everything painted behind it. `.form-box`'s
+   backdrop-filter therefore had an empty backdrop to blur for the whole
+   animation. The moment opacity reached exactly 1 the group collapsed, the
+   real page behind became visible to the filter, and the frost appeared all at
+   once. Delaying or lengthening the animation cannot fix that; the fade itself
+   is what suppresses the blur.
+
+   So the fade moves down one level, onto `.form-box` itself. An element's own
+   opacity does not create a backdrop root for that same element, only for its
+   descendants, so the glass samples the hero behind it from the first frame
+   and simply fades up along with the panel. The travel stays on the wrapper.
+
+   Desktop only in effect: the panel is `display: none` under 960px.
+   ========================================================================== */
+.page-home .hero-form {
+  opacity: 1;
+  animation: heroFormRise 0.7s ease forwards 0.45s;
+  transform: translateY(20px);
+}
+.page-home .hero-form .form-box {
+  opacity: 0;
+  animation: heroFormFade 0.7s ease forwards 0.45s;
+}
+
+@keyframes heroFormRise {
+  from { transform: translateY(20px); }
+  to   { transform: translateY(0); }
+}
+@keyframes heroFormFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-home .hero-form,
+  .page-home .hero-form .form-box {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

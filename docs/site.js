@@ -148,7 +148,11 @@
       var stem  = v.dataset.hero;
       var small = MOBILE.matches;
       var base  = small ? stem + '-mobile' : stem;
-      v.poster  = base + '-poster.jpg';
+      /* The desktop poster is in the markup so the browser starts fetching it
+         during parse, not after this deferred script runs. Overwriting it here
+         would throw that head start away; only the phone needs the smaller
+         crop, and the phone does not show the frosted panel anyway. */
+      if (small) v.poster = base + '-poster.jpg';
       var s = document.createElement('source');
       s.src = base + '.mp4';
       s.type = 'video/mp4';
