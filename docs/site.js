@@ -177,14 +177,50 @@
 
   function contactBar() {
     if (document.querySelector('.mobile-consult-bar')) return;   /* page has its own */
-    var r = sitePrefix();
     var bar = document.createElement('div');
-    bar.className = 'mobile-consult-bar rl-bar';
-    bar.innerHTML =
-      '<a class="rl-bar-call" href="tel:4072582002" aria-label="Call Ready Legal">' +
-        '<span aria-hidden="true">\u260E</span> Call</a>' +
-      '<a class="rl-bar-cta" href="' + r + '#intake">Request a Consultation</a>';
+    /* Identical markup to the homepage's bar, so it inherits the same styling
+       instead of a lookalike. An earlier version added a Call button that no
+       other page had. */
+    bar.className = 'mobile-consult-bar';
+    bar.id = 'mobileConsultBar';
+    bar.innerHTML = '<button onclick="openMobileForm()" aria-label="Request a consultation">' +
+                    'Request a Consultation</button>';
     document.body.appendChild(bar);
+  }
+
+  /* The stylesheet reserved a flat 80px under the footer for the bar. The bar
+     is not 80px tall, and its height changes with the safe-area inset, so the
+     page kept scrolling past the footer by whatever the difference was.
+     Measure it instead. */
+  function padForBar() {
+    var bar = document.querySelector('.mobile-consult-bar');
+    if (!bar || !MOBILE.matches || getComputedStyle(bar).display === 'none') {
+      document.body.style.paddingBottom = '';
+      return;
+    }
+    document.body.style.paddingBottom = Math.ceil(bar.getBoundingClientRect().height) + 'px';
+  }
+
+  /* Several pages were built without the hamburger and its inline handler, so
+     the nav simply vanished on a phone. finish.py injects the markup and tags
+     it; only tagged buttons are bound here, or the pages that already ship
+     their own handler would toggle twice and appear dead. */
+  function hamburger() {
+    var h = document.querySelector('[data-rl-hamburger]');
+    var m = document.getElementById('mobileMenu');
+    if (!h || !m) return;
+    var open = false;
+    function set(v) {
+      open = v;
+      h.classList.toggle('open', v);
+      m.classList.toggle('open', v);
+      h.setAttribute('aria-expanded', v ? 'true' : 'false');
+      m.setAttribute('aria-hidden', v ? 'false' : 'true');
+    }
+    h.addEventListener('click', function () { set(!open); });
+    m.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { set(false); });
+    });
   }
 
   /* The footer's Contact link calls openMobileForm(), which only exists on the
@@ -195,12 +231,15 @@
 
   function init() {
     contactBar();
+    hamburger();
     heroVideo();
+    padForBar();
+    window.addEventListener('resize', padForBar);
     var cards = document.querySelectorAll('.rl-expand');
     var lists = document.querySelectorAll('.rl-truncate');
     cards.forEach(buildCard);
     lists.forEach(buildList);
-    function sync() { cards.forEach(syncCard); lists.forEach(syncList); }
+    function sync() { cards.forEach(syncCard); lists.forEach(syncList); padForBar(); }
     sync();
     if (MOBILE.addEventListener) MOBILE.addEventListener('change', sync);
     else MOBILE.addListener(sync);
