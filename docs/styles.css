@@ -1489,6 +1489,36 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   .page-articles .art-filter { font-size: 12px; padding: 7px 13px; }
 }
 
+/* Terms and Privacy sit beside the copyright line in every footer. */
+.footer-legal-links { display: inline; }
+.footer-legal-links a {
+  color: rgba(255,255,255,0.55); text-decoration: none;
+  margin-left: 14px; padding-left: 14px;
+  border-left: 1px solid rgba(255,255,255,0.18);
+  transition: color 0.25s;
+}
+.footer-legal-links a:hover { color: var(--orange-text); }
+@media (max-width: 600px) {
+  .footer-legal-links { display: block; margin-top: 8px; }
+  .footer-legal-links a:first-child { margin-left: 0; padding-left: 0; border-left: 0; }
+}
+
+/* LinkedIn and YouTube under the footer contact block. */
+.footer-social { display: flex; gap: 10px; margin-top: 14px; }
+.footer-social a {
+  color: rgba(255,255,255,0.6); text-decoration: none;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.6px;
+  border: 1px solid rgba(255,255,255,0.18); border-radius: var(--r-pill);
+  padding: 6px 14px; transition: border-color 0.25s, color 0.25s;
+}
+.footer-social a:hover { color: var(--orange-text); border-color: var(--orange); }
+
+/* Footer column headings moved from h4 to h2 for heading order. Same look. */
+.footer-col h2.footer-h {
+  font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); margin: 0 0 16px; font-family: inherit;
+}
+
 
 /* ==========================================================================
    SERVICE AREA PAGES
@@ -2019,6 +2049,23 @@ footer,
     bottom: auto; top: calc(100% + 10px);
   }
   .page-home .rec-tip::after { display: none; }
+}
+
+
+/* ==========================================================================
+   AS SEEN IN: PRESS LOGOS ON A NARROW PHONE
+   The grid drops to two columns under 960px, but a grid track defaults to
+   min-width:auto, so a track cannot shrink below its content. Each logo tile
+   wanted 140px of image plus 56px of padding, which is 196px in a track that
+   is 128px wide at 320px, and the section pushed the page 112px sideways.
+
+   The width and height attributes added for layout stability are what made
+   this visible: before, a lazily-loaded logo reserved no space at all until it
+   arrived, so the overflow only appeared once the images did.
+   ========================================================================== */
+@media (max-width: 960px) {
+  .page-home .press-item { min-width: 0; padding: 10px 14px; }
+  .page-home .press-item img { max-width: 100%; }
 }
 /* ==========================================================================
    BRAND LOCKUP

@@ -685,4 +685,6 @@
     <lastmod>2023-06-11</lastmod>
     <priority>0.6</priority>
   </url>
+  <url><loc>https://readylegal.net/terms/</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://readylegal.net/privacy/</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
 </urlset>
