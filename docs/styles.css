@@ -1682,6 +1682,23 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   transform: translateZ(0);
 }
 
+/* --- counsel: the sticky headshot ----------------------------------------
+   The photo column was `position: sticky`, and a sticky grid item is held by
+   its containing block. The browser treats that as the whole grid, not the row
+   the photo sits in, so once the bio ran out the photo kept travelling and
+   slid down across the Education, Practice Areas, Experience and Bar
+   Admissions cards, covering them.
+
+   Constraining it properly would not be worth much either: the photo is 726px
+   tall and its own row is 765px, so a correctly-bounded sticky has 39px of
+   travel, which nobody would notice. The photo and the bio are the same height
+   by design, so there is nothing for it to follow. It scrolls with the page.
+
+   Making it genuinely sticky would mean moving the four meta cards into the
+   right-hand column so the photo column runs the full height of the section.
+   That is a layout change, not a bug fix. */
+.page-counsel .profile-photo-wrap { position: static; top: auto; }
+
 
 /* ==========================================================================
    ORANGE TEXT CONTRAST
