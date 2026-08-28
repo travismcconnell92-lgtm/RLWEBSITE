@@ -91,6 +91,25 @@ body {
   body:has(.mobile-consult-bar) { padding-bottom: 68px; }
 }
 
+
+/* Width and height attributes on <img> are presentational hints, so when CSS
+   gives an image a width but no height, the attribute becomes the height and
+   the picture stretches. This one line makes those attributes safe: it beats
+   the hint, and any real CSS height beats it back. */
+img { height: auto; }
+
+
+/* The skip link sits off-screen until a keyboard user tabs to it, then drops
+   into view as the first thing they reach. */
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 400;
+  background: var(--orange); color: var(--navy);
+  font-weight: 700; font-size: 14px; text-decoration: none;
+  padding: 12px 20px; border-radius: 0 0 var(--r-md) var(--r-md);
+  transition: top 0.18s ease;
+}
+.skip-link:focus { top: 0; outline: 3px solid var(--navy); outline-offset: 2px; }
+
 /* --- KEYFRAMES (collected from every page) --- */
 @keyframes menuSlideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes trustScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -2066,6 +2085,67 @@ footer,
 @media (max-width: 960px) {
   .page-home .press-item { min-width: 0; padding: 10px 14px; }
   .page-home .press-item img { max-width: 100%; }
+}
+
+
+/* ==========================================================================
+   THE HOMEPAGE HEADLINE ON MOBILE
+   `.page-home .hero h1 { display: none }` removed the only <h1> on the page at
+   phone widths. Google indexes the mobile rendering of a site, not the desktop
+   one, so the strongest heading on the homepage was invisible in the version
+   that actually gets crawled, and the first heading a screen reader met was an
+   <h3>, three levels deep with nothing above it.
+
+   The mobile hero deliberately leads with the tagline instead, and that design
+   is not being changed here. The heading is moved out of sight rather than out
+   of existence: clipped to a single pixel, still in the document, still in the
+   accessibility tree. Nothing on screen moves.
+
+   The better fix is to give the mobile hero a real visible <h1> that says what
+   the firm does. That is a copy decision, not a CSS one.
+   ========================================================================== */
+@media (max-width: 960px) {
+  .page-home .hero h1 {
+    display: block;
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0; border: 0;
+    overflow: hidden; white-space: nowrap;
+    clip: rect(0 0 0 0); clip-path: inset(50%);
+    opacity: 1; animation: none; font-size: 16px;
+  }
+  .page-home .hero h1::before { display: none; }
+}
+
+
+/* ==========================================================================
+   THE CLOSED SLIDE-UP FORM
+   The mobile consultation panel is pushed off the bottom of the screen with a
+   transform. A transform moves a thing visually; it does not remove it. So the
+   closed panel kept seven focusable fields in the tab order and its heading in
+   the document outline: tabbing through the homepage dropped the keyboard into
+   an invisible form, and a screen reader announced "Request a Consultation" as
+   the first heading on the page, above the <h1>.
+
+   `visibility: hidden` takes it out of both, and the delay lets the slide-out
+   animation finish before it disappears. Page-scoped copies are listed because
+   they set their own `transition` and would otherwise win.
+   ========================================================================== */
+@media (max-width: 960px) {
+  .mobile-form-panel,
+  .page-counsel .mobile-form-panel,
+  .page-practices .mobile-form-panel,
+  .page-about .mobile-form-panel {
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0s linear 0.3s;
+  }
+  .mobile-form-panel.open,
+  .page-counsel .mobile-form-panel.open,
+  .page-practices .mobile-form-panel.open,
+  .page-about .mobile-form-panel.open {
+    visibility: visible;
+    transition: transform 0.3s ease, visibility 0s;
+  }
 }
 /* ==========================================================================
    BRAND LOCKUP

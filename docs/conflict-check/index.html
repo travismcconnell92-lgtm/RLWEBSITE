@@ -8,7 +8,7 @@
 <meta name="description" content="Conflict check request form for prospective Ready Legal clients. Completed before a consultation is scheduled.">
 <title>Conflict Check Request | Ready Legal</title>
 
-<link rel="stylesheet" href="../styles.css?v=55169be3">
+<link rel="stylesheet" href="../styles.css?v=fac528fb">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://readylegal.net/conflict-check/">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
@@ -28,6 +28,7 @@
 
 <body class="page-conflicts">
 
+<a class="skip-link" href="#main">Skip to content</a>
 <header>
 <a href="../">READY LEGAL</a>
   <a href="tel:4072582002" class="header-phone-mobile">(407) 258-2002</a>
@@ -42,6 +43,7 @@
 
   <a href="tel:4072582002" class="mobile-cta">(407) 258-2002</a>
 </div>
+<main id="main">
 
 
 <section class="hero">
@@ -138,38 +140,38 @@ Please complete the form below so our team can conduct a conflict check before s
 <input type="hidden" name="_subject" value="Conflict Check Request - Ready Legal">
 
 <label>First and Last Name</label>
-<input type="text" name="full_name" placeholder="Jane Smith" required>
+<input type="text" name="full_name" placeholder="Jane Smith" required aria-label="Jane Smith">
 
 <label>Business Name</label>
 <p class="field-note">Leave blank if not applicable</p>
-<input type="text" name="business_name" placeholder="Acme LLC">
+<input type="text" name="business_name" placeholder="Acme LLC" aria-label="Acme LLC">
 
 <label>Mailing Address</label>
-<input type="text" name="mailing_address" placeholder="123 Main St, Orlando, FL 32801" required>
+<input type="text" name="mailing_address" placeholder="123 Main St, Orlando, FL 32801" required aria-label="123 Main St, Orlando, FL 32801">
 
 <label>Phone Number</label>
-<input type="tel" name="phone" placeholder="(407) 555-0000" required>
+<input type="tel" name="phone" placeholder="(407) 555-0000" required aria-label="(407) 555-0000">
 
 <label>Email Address</label>
-<input type="email" name="email" placeholder="jane@example.com" required>
+<input type="email" name="email" placeholder="jane@example.com" required aria-label="jane@example.com">
 
 <label>Adverse Party's Name</label>
 <p class="field-note">The person or entity on the other side of your matter</p>
-<input type="text" name="adverse_party" placeholder="John Doe or XYZ Corp" required>
+<input type="text" name="adverse_party" placeholder="John Doe or XYZ Corp" required aria-label="John Doe or XYZ Corp">
 
 <label>Other Parties Who May Have an Adverse Interest</label>
 <p class="field-note">List any additional individuals or entities who may be involved</p>
-<textarea rows="3" name="other_adverse_parties" placeholder="e.g., lenders, co-owners, guarantors, subcontractors..."></textarea>
+<textarea rows="3" name="other_adverse_parties" placeholder="e.g., lenders, co-owners, guarantors, subcontractors..." aria-label="e.g., lenders, co-owners, guarantors, subcontractors"></textarea>
 
 <label>Address of Property in Dispute</label>
 <p class="field-note">Leave blank if no property is involved</p>
-<input type="text" name="property_address" placeholder="456 Oak Ave, Miami, FL 33101">
+<input type="text" name="property_address" placeholder="456 Oak Ave, Miami, FL 33101" aria-label="456 Oak Ave, Miami, FL 33101">
 
 <label>Briefly Describe Your Legal Matter</label>
-<textarea rows="5" name="legal_matter_description" placeholder="Please provide a short summary of the issue you need assistance with..." required></textarea>
+<textarea rows="5" name="legal_matter_description" placeholder="Please provide a short summary of the issue you need assistance with..." required aria-label="Please provide a short summary of the issue you need assistance with"></textarea>
 
 <label>How Did You Hear About Us?</label>
-<select name="referral_source" required>
+<select name="referral_source" required aria-label="Referral Source">
   <option value="" disabled selected>Select one...</option>
   <option value="Referral from attorney">Referral from another attorney</option>
   <option value="Referral from client">Referral from a current or former client</option>
@@ -188,6 +190,7 @@ Please complete the form below so our team can conduct a conflict check before s
 </section>
 
 
+</main>
 <footer>
 
 <strong>READY LEGAL</strong>

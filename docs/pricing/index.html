@@ -6,7 +6,7 @@
 <title>Pricing | Ready Legal</title>
 <meta name="description" content="Ready Legal offers transparent, straightforward legal fee structures for Florida construction law, business law, and litigation matters.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=55169be3">
+<link rel="stylesheet" href="../styles.css?v=fac528fb">
 <link rel="canonical" href="https://readylegal.net/pricing/">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
 <link rel="icon" href="../images/brand/favicon.svg" type="image/svg+xml">
@@ -25,6 +25,7 @@
 <body class="page-pricing">
 
 <!-- HEADER -->
+<a class="skip-link" href="#main">Skip to content</a>
 <header>
   <a href="../" class="logo"><img class="logo-mark" src="../images/brand/rl-horizontal-white.svg" alt="Ready Legal" width="150" height="48"><img class="logo-icon" src="../images/brand/rl-icon.svg" alt="Ready Legal" width="36" height="36"></a>
   <nav>
@@ -51,6 +52,7 @@
   <a href="../resources/">Resources</a>
   <a href="#contact" class="mobile-cta">Get Help</a>
 </div>
+<main id="main">
 
 <!-- HERO -->
 <section class="hero">
@@ -220,13 +222,13 @@
       <form action="https://formspree.io/f/xgonadnj" method="POST">
         <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
         <label>Name</label>
-        <input type="text" name="name" placeholder="Jane Smith" required="">
+        <input type="text" name="name" placeholder="Jane Smith" required="" aria-label="Jane Smith">
         <label>Email</label>
-        <input type="email" name="email" placeholder="jane@example.com" required="">
+        <input type="email" name="email" placeholder="jane@example.com" required="" aria-label="jane@example.com">
         <label>Phone</label>
-        <input type="tel" name="phone" placeholder="(407) 555-0000">
+        <input type="tel" name="phone" placeholder="(407) 555-0000" aria-label="(407) 555-0000">
         <label>Briefly Describe Your Legal Matter</label>
-        <textarea name="message" rows="4" placeholder="Tell us about your situation..." required=""></textarea>
+        <textarea name="message" rows="4" placeholder="Tell us about your situation..." required="" aria-label="Tell us about your situation"></textarea>
         <button type="submit">Get Help →</button>
       </form>
     </div>
@@ -234,6 +236,7 @@
 </section>
 
 <!-- FOOTER -->
+</main>
 <footer>
  <div class="footer-inner">
  <div class="footer-top">

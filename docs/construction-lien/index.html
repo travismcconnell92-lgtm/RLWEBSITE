@@ -9,7 +9,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="../styles.css?v=55169be3">
+<link rel="stylesheet" href="../styles.css?v=fac528fb">
 <link rel="canonical" href="https://readylegal.net/construction-lien/">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
 <link rel="icon" href="../images/brand/favicon.svg" type="image/svg+xml">
@@ -28,6 +28,7 @@
 <body class="page-lien">
 
 <!-- HEADER -->
+<a class="skip-link" href="#main">Skip to content</a>
 <header>
   <a href="../" class="logo"><img class="logo-mark" src="../images/brand/rl-horizontal-white.svg" alt="Ready Legal" width="150" height="48"><img class="logo-icon" src="../images/brand/rl-icon.svg" alt="Ready Legal" width="36" height="36"></a>
   <a href="tel:4072582002" class="header-phone-mobile">(407) 258-2002</a>
@@ -50,6 +51,7 @@
   <a href="#form">Start My Lien</a>
   <a href="tel:4072582002" class="mobile-cta">(407) 258-2002</a>
 </div>
+<main id="main">
 
 
 <!-- HERO -->
@@ -205,40 +207,40 @@
       <form action="https://formspree.io/f/meeravaa" method="POST">
 
         <label>Name</label>
-        <input type="text" name="name" placeholder="Jane Smith" required>
+        <input type="text" name="name" placeholder="Jane Smith" required aria-label="Jane Smith">
 
         <label>Email</label>
-        <input type="email" name="email" placeholder="jane@example.com" required>
+        <input type="email" name="email" placeholder="jane@example.com" required aria-label="jane@example.com">
 
         <label>Company</label>
-        <input type="text" name="company" placeholder="Smith Contracting LLC">
+        <input type="text" name="company" placeholder="Smith Contracting LLC" aria-label="Smith Contracting LLC">
 
         <label>Project Address</label>
-        <input type="text" name="project_address" placeholder="123 Main St, Orlando, FL" required>
+        <input type="text" name="project_address" placeholder="123 Main St, Orlando, FL" required aria-label="123 Main St, Orlando, FL">
 
         <label>County</label>
-        <input type="text" name="county" placeholder="Orange">
+        <input type="text" name="county" placeholder="Orange" aria-label="Orange">
 
         <label>Property Owner Name</label>
-        <input type="text" name="property_owner" placeholder="Property Owner or Entity Name">
+        <input type="text" name="property_owner" placeholder="Property Owner or Entity Name" aria-label="Property Owner or Entity Name">
 
         <label>Value of Work Provided ($)</label>
-        <input type="number" name="value_work" placeholder="0.00">
+        <input type="number" name="value_work" placeholder="0.00" aria-label="0.00">
 
         <label>Amount Unpaid ($)</label>
-        <input type="number" name="amount_unpaid" placeholder="0.00">
+        <input type="number" name="amount_unpaid" placeholder="0.00" aria-label="0.00">
 
         <label>First Date of Work</label>
-        <input type="date" name="first_date_work">
+        <input type="date" name="first_date_work" aria-label="First Date Work">
 
         <label>Last Date of Work</label>
-        <input type="date" name="last_date_work">
+        <input type="date" name="last_date_work" aria-label="Last Date Work">
 
         <label>Date Notice to Owner Was Served (if applicable)</label>
-        <input type="date" name="notice_date">
+        <input type="date" name="notice_date" aria-label="Notice Date">
 
         <label>Additional Project Information</label>
-        <textarea rows="4" name="additional_info" placeholder="Any other relevant details about the project or dispute..."></textarea>
+        <textarea rows="4" name="additional_info" placeholder="Any other relevant details about the project or dispute..." aria-label="Any other relevant details about the project or dispute"></textarea>
 
         <button type="submit">Submit Lien Request &rarr;</button>
       </form>
@@ -248,6 +250,7 @@
 </section>
 
 <!-- FOOTER -->
+</main>
 <footer>
  <div class="footer-inner">
  <div class="footer-top">

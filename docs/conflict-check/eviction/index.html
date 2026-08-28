@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Eviction matter conflict check request form for prospective Ready Legal clients.">
 <title>Conflict Check Request – Eviction Matter | Ready Legal</title>
-<link rel="stylesheet" href="../../styles.css?v=55169be3">
+<link rel="stylesheet" href="../../styles.css?v=fac528fb">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://readylegal.net/conflict-check/eviction/">
 <link rel="icon" href="../../favicon.ico" sizes="32x32">
@@ -24,6 +24,7 @@
 </head>
 <body class="page-eviction">
 
+<a class="skip-link" href="#main">Skip to content</a>
 <header>
   <a href="../../">READY LEGAL</a>
   <a href="tel:4072582002" class="header-phone-mobile">(407) 258-2002</a>
@@ -38,6 +39,7 @@
 
   <a href="tel:4072582002" class="mobile-cta">(407) 258-2002</a>
 </div>
+<main id="main">
 
 
 <section class="hero">
@@ -109,35 +111,35 @@
 
       <label>Property Owner's Full Name *</label>
       <p class="field-note">Your name or the name of the owning entity (LLC, trust, etc.)</p>
-      <input type="text" name="owner_name" placeholder="Jane Smith or Acme Properties LLC" required>
+      <input type="text" name="owner_name" placeholder="Jane Smith or Acme Properties LLC" required aria-label="Jane Smith or Acme Properties LLC">
 
       <label>Property Owner's Mailing Address *</label>
-      <input type="text" name="owner_address" placeholder="123 Main St, Orlando, FL 32801" required>
+      <input type="text" name="owner_address" placeholder="123 Main St, Orlando, FL 32801" required aria-label="123 Main St, Orlando, FL 32801">
 
       <label>Property Owner's Email Address *</label>
-      <input type="email" name="owner_email" placeholder="jane@example.com" required>
+      <input type="email" name="owner_email" placeholder="jane@example.com" required aria-label="jane@example.com">
 
       <label>Property Owner's Phone Number *</label>
-      <input type="tel" name="owner_phone" placeholder="(407) 555-0000" required>
+      <input type="tel" name="owner_phone" placeholder="(407) 555-0000" required aria-label="(407) 555-0000">
 
       <!-- ===== SECTION 2: PROPERTY MANAGER ===== -->
       <div class="form-section-title">👤 Property Manager</div>
 
       <label>Is a property manager handling this matter on your behalf?</label>
       <div class="radio-group">
-        <label><input type="radio" name="has_property_manager" value="No" onchange="toggle('pm-section', false)" checked> No — I am self-managing</label>
-        <label><input type="radio" name="has_property_manager" value="Yes" onchange="toggle('pm-section', true)"> Yes — a property manager is involved</label>
+        <label><input type="radio" name="has_property_manager" value="No" onchange="toggle('pm-section', false)" checked aria-label="Has Property Manager"> No — I am self-managing</label>
+        <label><input type="radio" name="has_property_manager" value="Yes" onchange="toggle('pm-section', true)" aria-label="Has Property Manager"> Yes — a property manager is involved</label>
       </div>
 
       <div class="conditional" id="pm-section">
         <label>Property Manager's Name</label>
-        <input type="text" name="pm_name" placeholder="Manager name or company">
+        <input type="text" name="pm_name" placeholder="Manager name or company" aria-label="Manager name or company">
         <label>Property Manager's Mailing Address</label>
-        <input type="text" name="pm_address" placeholder="456 Oak Ave, Orlando, FL 32803">
+        <input type="text" name="pm_address" placeholder="456 Oak Ave, Orlando, FL 32803" aria-label="456 Oak Ave, Orlando, FL 32803">
         <label>Property Manager's Phone</label>
-        <input type="tel" name="pm_phone" placeholder="(407) 555-0001">
+        <input type="tel" name="pm_phone" placeholder="(407) 555-0001" aria-label="(407) 555-0001">
         <label>Property Manager's Email</label>
-        <input type="email" name="pm_email" placeholder="manager@example.com">
+        <input type="email" name="pm_email" placeholder="manager@example.com" aria-label="manager@example.com">
       </div>
 
       <!-- ===== SECTION 3: RENTAL PROPERTY ===== -->
@@ -145,10 +147,10 @@
 
       <label>Address of the Rental Property *</label>
       <p class="field-note">The property subject to the eviction</p>
-      <input type="text" name="property_address" placeholder="789 Tenant Lane, Orlando, FL 32804" required>
+      <input type="text" name="property_address" placeholder="789 Tenant Lane, Orlando, FL 32804" required aria-label="789 Tenant Lane, Orlando, FL 32804">
 
       <label>Property Type</label>
-      <select name="property_type">
+      <select name="property_type" aria-label="Property Type">
         <option value="" disabled selected>Select one...</option>
         <option value="Single-family home">Single-family home</option>
         <option value="Apartment / unit">Apartment / unit</option>
@@ -169,7 +171,7 @@
             <h3>Tenant 1</h3>
           </div>
           <label>Full Name *</label>
-          <input type="text" name="tenant_1_name" placeholder="John Doe" required>
+          <input type="text" name="tenant_1_name" placeholder="John Doe" required aria-label="John Doe">
         </div>
       </div>
 
@@ -177,13 +179,13 @@
 
       <label>Are you aware of any other occupants not on the lease?</label>
       <div class="radio-group">
-        <label><input type="radio" name="other_occupants" value="No" onchange="toggle('other-occupants-section', false)" checked> No</label>
-        <label><input type="radio" name="other_occupants" value="Yes" onchange="toggle('other-occupants-section', true)"> Yes</label>
+        <label><input type="radio" name="other_occupants" value="No" onchange="toggle('other-occupants-section', false)" checked aria-label="Other Occupants"> No</label>
+        <label><input type="radio" name="other_occupants" value="Yes" onchange="toggle('other-occupants-section', true)" aria-label="Other Occupants"> Yes</label>
       </div>
 
       <div class="conditional" id="other-occupants-section">
         <label>Please list the names of any other known occupants</label>
-        <textarea rows="3" name="other_occupants_names" placeholder="e.g., John Doe Jr., Jane Roe..."></textarea>
+        <textarea rows="3" name="other_occupants_names" placeholder="e.g., John Doe Jr., Jane Roe..." aria-label="e.g., John Doe Jr., Jane Roe"></textarea>
       </div>
 
       <!-- ===== SECTION 5: LEASE INFORMATION ===== -->
@@ -191,8 +193,8 @@
 
       <label>Does the tenant have a written lease?</label>
       <div class="radio-group">
-        <label><input type="radio" name="written_lease" value="Yes" onchange="showLease('written')" checked> Yes — written lease</label>
-        <label><input type="radio" name="written_lease" value="No" onchange="showLease('verbal')"> No — verbal / month-to-month</label>
+        <label><input type="radio" name="written_lease" value="Yes" onchange="showLease('written')" checked aria-label="Written Lease"> Yes — written lease</label>
+        <label><input type="radio" name="written_lease" value="No" onchange="showLease('verbal')" aria-label="Written Lease"> No — verbal / month-to-month</label>
       </div>
 
       <!-- Written lease follow-up -->
@@ -202,14 +204,14 @@
           Include your name and the property address in the subject line.
         </div>
         <label>Lease Start Date</label>
-        <input type="date" name="lease_start_date">
+        <input type="date" name="lease_start_date" aria-label="Lease Start Date">
         <label>Lease End Date</label>
         <p class="field-note">Leave blank if the lease is month-to-month</p>
-        <input type="date" name="lease_end_date">
+        <input type="date" name="lease_end_date" aria-label="Lease End Date">
         <label>Monthly Rent Amount ($)</label>
-        <input type="number" name="monthly_rent" placeholder="e.g., 1500" min="0" step="0.01">
+        <input type="number" name="monthly_rent" placeholder="e.g., 1500" min="0" step="0.01" aria-label="e.g., 1500">
         <label>Rent Due Date Each Month</label>
-        <select name="rent_due_day">
+        <select name="rent_due_day" aria-label="Rent Due Day">
           <option value="" disabled selected>Select day...</option>
           <option value="1st">1st</option>
           <option value="5th">5th</option>
@@ -222,9 +224,9 @@
       <!-- Verbal lease follow-up -->
       <div class="conditional" id="verbal-lease-section">
         <label>Monthly Rent Amount ($) *</label>
-        <input type="number" name="verbal_monthly_rent" placeholder="e.g., 1200" min="0" step="0.01">
+        <input type="number" name="verbal_monthly_rent" placeholder="e.g., 1200" min="0" step="0.01" aria-label="e.g., 1200">
         <label>Rent Due Date Each Month</label>
-        <select name="verbal_rent_due_day">
+        <select name="verbal_rent_due_day" aria-label="Verbal Rent Due Day">
           <option value="" disabled selected>Select day...</option>
           <option value="1st">1st</option>
           <option value="5th">5th</option>
@@ -233,10 +235,10 @@
           <option value="Other">Other — specify below</option>
         </select>
         <label>Approximately When Did the Tenancy Begin?</label>
-        <input type="date" name="verbal_tenancy_start">
+        <input type="date" name="verbal_tenancy_start" aria-label="Verbal Tenancy Start">
         <label>What Were the Agreed Terms of the Verbal Lease?</label>
         <p class="field-note">Describe the agreement as best you recall — rent amount, due date, who pays utilities, duration, any other key terms</p>
-        <textarea rows="4" name="verbal_lease_terms" placeholder="e.g., Tenant agreed to pay $1,200/month on the 1st. Utilities are tenant's responsibility. No pets. No fixed end date — month-to-month."></textarea>
+        <textarea rows="4" name="verbal_lease_terms" placeholder="e.g., Tenant agreed to pay $1,200/month on the 1st. Utilities are tenant's responsibility. No pets. No fixed end date — month-to-month." aria-label="e.g., Tenant agreed to pay $1,200/month on the 1st. Utilities are tenant's responsibility. No pets. No fixed end date — month-to-month"></textarea>
       </div>
 
       <!-- ===== SECTION 6: 3-DAY NOTICE ===== -->
@@ -244,8 +246,8 @@
 
       <label>Have you served a 3-Day Notice on the tenant?</label>
       <div class="radio-group">
-        <label><input type="radio" name="three_day_notice" value="Yes" onchange="toggle('notice-section', true)" checked> Yes</label>
-        <label><input type="radio" name="three_day_notice" value="No" onchange="toggle('notice-section', false)"> No</label>
+        <label><input type="radio" name="three_day_notice" value="Yes" onchange="toggle('notice-section', true)" checked aria-label="Three Day Notice"> Yes</label>
+        <label><input type="radio" name="three_day_notice" value="No" onchange="toggle('notice-section', false)" aria-label="Three Day Notice"> No</label>
       </div>
 
       <div class="conditional show" id="notice-section">
@@ -254,9 +256,9 @@
           Include your name and the property address in the subject line.
         </div>
         <label>Date the Notice Was Served</label>
-        <input type="date" name="notice_date_served">
+        <input type="date" name="notice_date_served" aria-label="Notice Date Served">
         <label>How Was the Notice Served?</label>
-        <select name="notice_service_method">
+        <select name="notice_service_method" aria-label="Notice Service Method">
           <option value="" disabled selected>Select method...</option>
           <option value="Hand-delivered to tenant">Hand-delivered directly to tenant</option>
           <option value="Posted on door">Posted on the front door</option>
@@ -271,9 +273,9 @@
 
       <label>Are any of the tenants or occupants an active-duty service member, reservist, or member of the military?</label>
       <div class="radio-group">
-        <label><input type="radio" name="military_status" value="No" onchange="toggle('military-warning', false)" checked> No</label>
-        <label><input type="radio" name="military_status" value="Yes" onchange="toggle('military-warning', true)"> Yes</label>
-        <label><input type="radio" name="military_status" value="Unknown" onchange="toggle('military-warning', false)"> Unknown</label>
+        <label><input type="radio" name="military_status" value="No" onchange="toggle('military-warning', false)" checked aria-label="Military Status"> No</label>
+        <label><input type="radio" name="military_status" value="Yes" onchange="toggle('military-warning', true)" aria-label="Military Status"> Yes</label>
+        <label><input type="radio" name="military_status" value="Unknown" onchange="toggle('military-warning', false)" aria-label="Military Status"> Unknown</label>
       </div>
 
       <div class="conditional" id="military-warning">
@@ -281,39 +283,39 @@
           ⚠️ <strong>Important — SCRA Notice:</strong> The Servicemembers Civil Relief Act (SCRA) may impose restrictions on eviction proceedings involving active-duty military members. Please disclose this to our team immediately so we can advise you on how to proceed.
         </div>
         <label>Please provide any details you know about the tenant's military status</label>
-        <textarea rows="2" name="military_details" placeholder="e.g., Tenant mentioned they are active-duty Army, or received a deployment notice..."></textarea>
+        <textarea rows="2" name="military_details" placeholder="e.g., Tenant mentioned they are active-duty Army, or received a deployment notice..." aria-label="e.g., Tenant mentioned they are active-duty Army, or received a deployment notice"></textarea>
       </div>
 
       <!-- ===== SECTION 8: RENT & AMOUNTS OWED ===== -->
       <div class="form-section-title">💰 Rent Default &amp; Amounts Owed</div>
 
       <label>What date did the tenant first fail to pay rent? *</label>
-      <input type="date" name="rent_failure_date" required>
+      <input type="date" name="rent_failure_date" required aria-label="Rent Failure Date">
 
       <label>Has the tenant made any rent payment since that date?</label>
       <div class="radio-group">
-        <label><input type="radio" name="partial_payment_made" value="No" onchange="toggle('partial-payment-section', false)" checked> No</label>
-        <label><input type="radio" name="partial_payment_made" value="Yes" onchange="toggle('partial-payment-section', true)"> Yes — a partial payment was made</label>
+        <label><input type="radio" name="partial_payment_made" value="No" onchange="toggle('partial-payment-section', false)" checked aria-label="Partial Payment Made"> No</label>
+        <label><input type="radio" name="partial_payment_made" value="Yes" onchange="toggle('partial-payment-section', true)" aria-label="Partial Payment Made"> Yes — a partial payment was made</label>
       </div>
 
       <div class="conditional" id="partial-payment-section">
         <label>Amount of the Partial Payment ($)</label>
-        <input type="number" name="partial_payment_amount" placeholder="e.g., 500" min="0" step="0.01">
+        <input type="number" name="partial_payment_amount" placeholder="e.g., 500" min="0" step="0.01" aria-label="e.g., 500">
         <label>Date of Most Recent Payment</label>
-        <input type="date" name="partial_payment_date">
+        <input type="date" name="partial_payment_date" aria-label="Partial Payment Date">
       </div>
 
       <label>What is the total amount currently owed under the lease? *</label>
       <p class="field-note">Include all past-due rent, late fees, and other charges if known</p>
-      <input type="text" name="total_owed" placeholder="e.g., $3,200.00" required>
+      <input type="text" name="total_owed" placeholder="e.g., $3,200.00" required aria-label="e.g., $3,200.00">
 
       <!-- ===== SECTION 9: RELIEF SOUGHT ===== -->
       <div class="form-section-title">⚖️ Relief Sought</div>
 
       <label>What are you seeking in this action? (select all that apply)</label>
       <div class="check-group">
-        <label><input type="checkbox" name="relief_possession" value="Yes"> Possession of the property (eviction / removal of tenant)</label>
-        <label><input type="checkbox" name="relief_back_rent" value="Yes"> Recovery of back rent and/or damages</label>
+        <label><input type="checkbox" name="relief_possession" value="Yes" aria-label="Relief Possession"> Possession of the property (eviction / removal of tenant)</label>
+        <label><input type="checkbox" name="relief_back_rent" value="Yes" aria-label="Relief Back Rent"> Recovery of back rent and/or damages</label>
       </div>
 
       <!-- ===== SECTION 10: ADDITIONAL INFO ===== -->
@@ -321,13 +323,13 @@
 
       <label>Is there any other information we should know about this case?</label>
       <p class="field-note">e.g., prior eviction attempts, property damage, police reports, pending hearings, disputes about the lease, tenant's claims or defenses</p>
-      <textarea rows="5" name="additional_info" placeholder="Please share any background that may be relevant to this matter..."></textarea>
+      <textarea rows="5" name="additional_info" placeholder="Please share any background that may be relevant to this matter..." aria-label="Please share any background that may be relevant to this matter"></textarea>
 
       <!-- ===== SECTION 11: REFERRAL ===== -->
       <div class="form-section-title">📣 How Did You Hear About Us?</div>
 
       <label>How did you hear about Ready Legal? *</label>
-      <select name="referral_source" required>
+      <select name="referral_source" required aria-label="Referral Source">
         <option value="" disabled selected>Select one...</option>
         <option value="Referral from attorney">Referral from another attorney</option>
         <option value="Referral from client">Referral from a current or former client</option>
@@ -342,6 +344,7 @@
   </div>
 </section>
 
+</main>
 <footer>
   <strong>READY LEGAL</strong>
   <br><br>
@@ -391,7 +394,7 @@
         '<button type="button" class="remove-btn" onclick="removeTenant(\'tenant-' + tenantCount + '\')">Remove</button>' +
       '</div>' +
       '<label>Full Name</label>' +
-      '<input type="text" name="tenant_' + tenantCount + '_name" placeholder="Full name of tenant">';
+      '<input type="text" name="tenant_' + tenantCount + '_name" placeholder="Full name of tenant" aria-label="Full name of tenant">';
     container.appendChild(block);
   }
 
