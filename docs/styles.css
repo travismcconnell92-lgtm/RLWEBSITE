@@ -222,7 +222,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .mobile-form-panel-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 299; }
 .mobile-form-panel-overlay.open { display: block; }
 .mobile-form-panel-close { position: absolute; top: 14px; right: 18px; background: none; border: none; font-size: 22px; color: var(--text-light); cursor: pointer; line-height: 1; padding: 4px 8px; }
-.back-to-top { display: none; }
 @media (max-width: 960px) {
   nav { display: none; }
   .hamburger { display: flex; }
@@ -379,6 +378,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-home form input:-webkit-autofill:hover { -webkit-box-shadow: 0 0 0 60px var(--off-white) inset !important; box-shadow: 0 0 0 60px var(--off-white) inset !important; -webkit-text-fill-color: var(--text) !important; transition: background-color 9999s ease-in-out 0s; }
 .page-home form input:-webkit-autofill:focus { -webkit-box-shadow: 0 0 0 60px var(--off-white) inset !important; box-shadow: 0 0 0 60px var(--off-white) inset !important; -webkit-text-fill-color: var(--text) !important; transition: background-color 9999s ease-in-out 0s; }
 .page-home form input:-webkit-autofill:active { -webkit-box-shadow: 0 0 0 60px var(--off-white) inset !important; box-shadow: 0 0 0 60px var(--off-white) inset !important; -webkit-text-fill-color: var(--text) !important; transition: background-color 9999s ease-in-out 0s; }
+.page-home .back-to-top { display: none; }
 @media (max-width: 960px) {
   .page-home .rl-animation-section { display: none; }
   .page-home .mob-atty-section { display: block; }
@@ -568,9 +568,9 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-practices .service-card li::before { content: '—'; color: var(--orange-text); flex-shrink: 0; font-weight: 700; }
 .page-practices .service-card li:last-child { border-bottom: none; }
 .page-practices .back-row { display: flex; align-items: center; justify-content: flex-start; padding-top: 32px; border-top: 1px solid var(--gray); }
-.page-practices .back-to-top { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-light); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
-.page-practices .back-to-top:hover { color: var(--navy); }
-.page-practices .back-to-top::before { content: '↑'; font-size: 14px; }
+.page-practices .page-back-link { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-light); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
+.page-practices .page-back-link:hover { color: var(--navy); }
+.page-practices .page-back-link::before { content: '↑'; font-size: 14px; }
 .page-practices .area-divider { height: 4px; background: linear-gradient(90deg, var(--navy), var(--navy-mid), var(--orange)); }
 .page-practices .cta-section { background: white; border-top: 1px solid var(--gray); padding: 80px 48px; }
 .page-practices .section-title { font-weight: 700; font-size: clamp(24px, 3vw, 36px); color: var(--navy); line-height: 1.15; margin-bottom: 20px; font-family: revert; }
@@ -827,9 +827,9 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-resources .service-card-link { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange-text); display: inline-flex; align-items: center; gap: 6px; }
 .page-resources .area-divider { height: 4px; background: linear-gradient(90deg, var(--navy), var(--navy-mid), var(--orange)); }
 .page-resources .back-row { display: flex; align-items: center; justify-content: flex-end; padding-top: 32px; border-top: 1px solid var(--gray); }
-.page-resources .back-to-top { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
-.page-resources .back-to-top:hover { color: var(--navy); }
-.page-resources .back-to-top::before { content: '↑'; font-size: 13px; }
+.page-resources .page-back-link { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
+.page-resources .page-back-link:hover { color: var(--navy); }
+.page-resources .page-back-link::before { content: '↑'; font-size: 13px; }
 .page-resources .cta-strip { background: var(--orange); padding: 52px 48px; position: relative; overflow: hidden; }
 .page-resources .cta-strip::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient( -45deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 14px ); pointer-events: none; }
 .page-resources .cta-strip-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; position: relative; z-index: 1; }
@@ -2230,5 +2230,260 @@ footer,
     animation: none;
     opacity: 1;
     transform: none;
+  }
+}
+/* ==========================================================================
+   DESKTOP POLISH PASS
+
+   Three things Travis asked for, plus the bug the third one uncovered.
+
+   1. Breathing room at the top of the homepage intake panel.
+   2. The "Orlando, Florida" topline on About and Resources, conformed to the
+      way the homepage does it: below the headline, in quiet white, with the
+      same orange rule above.
+   3. The Resources page's Articles / Videos / Practice Tools bands rebuilt as
+      a three-up card row.
+   4. The footer's own "Back to Top" button stopped being styled by the
+      in-page back link. Both used the class `.back-to-top`; the page-scoped
+      link rules outranked the shared `display: none` and dropped a stray
+      arrow and a bare button into the footer grid. The in-page link is now
+      `.page-back-link`, which leaves `.back-to-top` to the footer alone.
+   ========================================================================== */
+
+
+/* --- 1. HOMEPAGE INTAKE PANEL SPACING ------------------------------------
+   Desktop only. The panel is display:none under 960px, but the media query
+   is written anyway so nothing here can reach the mobile slide-up form.
+
+   The heading is an <h2>, promoted from <h3> by the heading pass, so it was
+   carrying the browser's default h2 margins and the call-out note was pulled
+   back into it by a negative top margin. */
+@media (min-width: 961px) {
+  .page-home .hero-form .form-box {
+    padding: 42px 36px 38px;
+  }
+  .page-home .hero-form .form-box h2,
+  .page-home .hero-form .form-box h3 {
+    margin: 0 0 20px;
+    font-size: 25px;
+    line-height: 1.25;
+  }
+  .page-home .hero-form .form-call-note {
+    margin: 0 0 30px;
+    padding: 15px 18px;
+  }
+}
+
+
+/* --- 2. HERO TOPLINE ON ABOUT AND RESOURCES ------------------------------
+   The homepage puts an orange rule above the headline and the location line
+   *below* it, in quiet white. About and Resources put the location line above
+   the headline in orange. Same treatment on all three now.
+
+   The markup moved the <p> after the <h1> on both pages, so the only work
+   left here is the type and the rule. */
+.page-about .hero-inner::before,
+.page-resources .hero-inner::before {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--orange);
+  margin-bottom: 22px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.05s;
+}
+.page-about .hero h1,
+.page-resources .hero h1 {
+  margin-bottom: 14px;
+}
+.page-about .hero-eyebrow,
+.page-resources .hero-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 26px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.35s;
+}
+@media (max-width: 960px) {
+  .page-about .hero-inner::before,
+  .page-resources .hero-inner::before {
+    width: 48px;
+    height: 3px;
+    margin-bottom: 18px;
+  }
+  .page-about .hero-eyebrow,
+  .page-resources .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin: 0 0 20px;
+  }
+}
+
+
+/* --- 3. RESOURCES HUB CARDS ---------------------------------------------
+   Replaces three full-bleed alternating bands, each with a lone emoji in a
+   circle floating in a 56px gap next to a column of text. One light section,
+   three equal cards, the same card language the tools grid below already
+   uses.
+
+   Three columns straight to one at the site's 960px breakpoint. A two-column
+   middle step was tried and dropped: three cards in a two-column grid leave
+   an obvious hole in the bottom right. The single-column state is capped so a
+   card never runs the full width of a tablet in portrait. */
+.page-resources .rh-section {
+  background: var(--off-white);
+  padding: 76px 48px;
+  border-bottom: 1px solid var(--gray);
+  position: relative;
+}
+.page-resources .rh-section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--orange), var(--orange-dark));
+}
+.page-resources .rh-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.page-resources .rh-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+.page-resources .rh-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--gray);
+  border-top: 3px solid var(--orange);
+  border-radius: var(--r-lg);
+  padding: 34px 30px 30px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.page-resources .rh-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 38px rgba(14, 37, 64, 0.13);
+}
+.page-resources .rh-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(14, 37, 64, 0.06);
+  border: 1px solid rgba(14, 37, 64, 0.10);
+  font-size: 28px;
+  line-height: 1;
+  margin-bottom: 22px;
+  flex-shrink: 0;
+}
+.page-resources .rh-kicker {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange-text);
+  margin-bottom: 10px;
+}
+.page-resources .rh-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+  margin-bottom: 14px;
+}
+.page-resources .rh-card p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+.page-resources .rh-card p:last-of-type {
+  margin-bottom: 26px;
+}
+.page-resources .rh-link {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--orange-text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+}
+.page-resources .rh-link:hover,
+.page-resources .rh-link:focus-visible {
+  border-bottom-color: var(--orange);
+}
+
+/* the label that now introduces the four tool cards, since the band that used
+   to introduce them has become one of the three cards above */
+.page-resources .tools-label {
+  justify-content: center;
+  margin-bottom: 34px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-resources .rh-card { transition: none; }
+  .page-resources .rh-card:hover { transform: none; }
+}
+
+@media (max-width: 1180px) {
+  .page-resources .rh-grid { gap: 22px; }
+  .page-resources .rh-card { padding: 30px 24px 26px; }
+  .page-resources .rh-card h2 { font-size: 21px; }
+}
+@media (max-width: 960px) {
+  .page-resources .rh-section { padding: 52px 24px; }
+  .page-resources .rh-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .page-resources .rh-card { padding: 28px 22px 26px; }
+  .page-resources .rh-icon {
+    width: 56px; height: 56px; font-size: 24px; margin-bottom: 18px;
+  }
+  .page-resources .rh-card h2 { font-size: 20px; }
+  .page-resources .tools-label { margin-bottom: 26px; }
+}
+
+
+/* --- 4. THE FOOTER'S OWN BACK TO TOP -------------------------------------
+   `.back-to-top` used to live in the homepage sheet, which is what made it a
+   shared rule and gave every other page its `display: none` on desktop.
+   Renaming the in-page link left the homepage as the only sheet that mentions
+   it, so it would have been scoped to `.page-home` and every other footer
+   would have shown a raw button. Stated here for the footer directly.
+
+   The mobile appearance still comes from _mobile-patterns.css; only the
+   display switch needs restating, and it has to come after that file. */
+footer .back-to-top { display: none; }
+@media (max-width: 960px) {
+  footer .back-to-top {
+    display: block;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4px 0 18px;
   }
 }
