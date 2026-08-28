@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Travis S. McConnell is an Orlando construction and business attorney and the founder of Ready Legal, serving small businesses throughout Florida.">
+<title>Counsel | Ready Legal</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=1">
+<link rel="canonical" href="https://readylegal.net/counsel/">
+</head>
+<body class="page-counsel">
+<!-- HEADER -->
+<header>
+  <a href="../" class="logo">READY LEGAL</a>
+  <a href="tel:4072582002" class="header-phone-mobile">(407) 258-2002</a>
+  <nav>
+    <a href="../counsel/" style="color:white;">Counsel</a>
+    <a href="../practice-areas/">Practice Areas</a>
+    <a href="../pricing/">Pricing</a>
+    <a href="../about/">About</a>
+    <a href="../resources/">Resources</a>
+    <a href="#intake" class="nav-cta">Get Help</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="../counsel/" style="color:white;">Counsel</a>
+  <a href="../practice-areas/">Practice Areas</a>
+  <a href="../pricing/">Pricing</a>
+  <a href="../about/">About</a>
+  <a href="../resources/">Resources</a>
+  <a href="#" onclick="openMobileForm(); return false;" class="mobile-cta">Get Help</a>
+</div>
+<!-- MOBILE CONSULT BAR -->
+<div class="mobile-consult-bar" id="mobileConsultBar">
+  <button onclick="openMobileForm()" aria-label="Request a consultation">Request a Consultation</button>
+</div>
+<div class="mobile-form-panel-overlay" id="mobileFormOverlay" onclick="closeMobileForm()"></div>
+<div class="mobile-form-panel" id="mobileFormPanel">
+  <button class="mobile-form-panel-close" onclick="closeMobileForm()" aria-label="Close">✕</button>
+  <div class="form-box" style="box-shadow:none;border:none;padding:0;">
+    <h3>Request a Consultation</h3>
+    <form action="https://formspree.io/f/xgonadnj" method="POST" autocomplete="off" id="mobileForm">
+      <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
+      <label for="mob-name">Name</label>
+      <input type="text" id="mob-name" name="name" placeholder="Jane Smith" required autocomplete="new-password">
+      <label for="mob-email">Email</label>
+      <input type="email" id="mob-email" name="email" placeholder="jane@example.com" required autocomplete="new-password">
+      <label for="mob-phone">Phone</label>
+      <input type="tel" id="mob-phone" name="phone" placeholder="(407) 555-0000" autocomplete="new-password">
+      <label for="mob-message">Briefly Describe Your Legal Matter</label>
+      <textarea id="mob-message" name="message" rows="3" placeholder="Tell us about your situation..." required></textarea>
+      <button type="submit">Get Help →</button>
+    </form>
+  </div>
+</div>
+<script>
+function openMobileForm() {
+  document.getElementById('mobileFormPanel').classList.add('open');
+  document.getElementById('mobileFormOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileForm() {
+  document.getElementById('mobileFormPanel').classList.remove('open');
+  document.getElementById('mobileFormOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+<!-- HERO -->
+<section class="hero">
+  <video class="hero-video" data-hero="../images/hero-counsel" autoplay muted loop playsinline
+         preload="none" aria-hidden="true" tabindex="-1"
+         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"></video>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Ready Legal — Orlando, Florida</p>
+    <h1>Counsel</h1>
+    <p class="hero-sub">Moving your business forward.</p>
+  </div>
+</section>
+<!-- PROFILE -->
+<section class="profile-section">
+  <!-- LEFT: PHOTO + NAME CARD -->
+  <div class="profile-photo-wrap">
+    <img loading="lazy" src="../images/travis-mcconnell.jpg" alt="Travis S. McConnell, Attorney">
+    <div class="profile-name-card">
+      <h2>Travis S. McConnell</h2>
+      <div class="title">Managing Attorney</div>
+      <a href="tel:4072582002" class="contact-link"><span>📞</span> (407) 258-2002</a>
+      <a href="mailto:travis@readylegal.net" class="contact-link"><span>✉️</span> travis@readylegal.net</a>
+      <a href="https://www.linkedin.com/in/constructionlawyerorlando/" class="contact-link" target="_blank"><span>🔗</span> LinkedIn</a>
+    </div>
+  </div>
+  <!-- RIGHT: BIO + META -->
+  <div class="profile-bio">
+    <div class="bio-block">
+      <p>Travis S. McConnell is a business and construction lawyer located in Orlando, FL. He founded Ready Legal with the aim of serving small businesses after practicing law at one of the largest law firms in the country. His clients have included a diverse range of companies, such as contractors, suppliers, landlords, retailers, manufacturers, lenders, and developers.</p>
+      <p>Mr. McConnell has been involved in construction for more than a decade, since joining the U.S. Army Reserve as an Engineer Officer. Before leaving the Army, he served in the Judge Advocate General's (JAG) Corps as Trial Counsel, performing litigation and general counsel duties for an Army engineer command overseeing more than 4,000 Soldiers.</p>
+      <p>In private practice, he has served clients across a spectrum of backgrounds, from Fortune-20 corporations to family-owned operations. As an entrepreneur and attorney, Mr. McConnell contributes to his clients' success through both legal experience and business judgment.</p>
+    </div>
+    <!-- RECOGNITION -->
+    <div class="meta-section">
+      <div class="meta-label">Recognition</div>
+      <ul class="meta-list">
+        <li>Florida Super Lawyers® — Rising Stars, Construction Litigation</li>
+        <li>Best Lawyers® — Ones to Watch: Construction Law, Regulatory Law, Commercial Litigation</li>
+        <li>Construction Law Society of America — Invitee for Associate Fellowship</li>
+        <li>Florida State University — Certificate in Business Law with Highest Honors</li>
+        <li>U.S. Army — Meritorious Service Medal, Army Achievement Medal, Army Reserve Components Achievement Medal, National Defense Service Medal, Army Service Ribbon; Air Assault Badge; Distinguished Military Graduate</li>
+      </ul>
+    </div>
+  </div>
+  <!-- EDUCATION + PRACTICE AREAS (full width, aligned with photo column) -->
+  <div class="meta-pair meta-pair-wide">
+    <div class="meta-section">
+      <div class="meta-label">Education</div>
+      <ul class="meta-list">
+        <li>Florida State University — J.D., cum laude</li>
+        <li>Florida Tech — B.S., summa cum laude</li>
+        <li>U.S. Army — Judge Advocate Officer Basic Course</li>
+      </ul>
+    </div>
+    <div class="meta-section">
+      <div class="meta-label">Practice Areas</div>
+      <ul class="meta-list">
+        <li>Construction Law</li>
+        <li>Business Law</li>
+        <li>Civil Litigation</li>
+      </ul>
+    </div>
+  </div>
+  <!-- EXPERIENCE + BAR ADMISSIONS (full width, aligned with photo column) -->
+  <div class="meta-pair meta-pair-wide">
+    <div class="meta-section">
+      <div class="meta-label">Experience</div>
+      <ul class="meta-list">
+        <li>Ready Legal</li>
+        <li>Baker Donelson</li>
+        <li>Lippes Mathias</li>
+        <li>Cotney Construction Law</li>
+      </ul>
+    </div>
+    <div class="meta-section">
+      <div class="meta-label">Bar Admissions</div>
+      <ul class="meta-list">
+        <li>Florida Bar</li>
+        <li>U.S. District Court for the Middle District of Florida</li>
+        <li>Eleventh Circuit U.S. Court of Appeals</li>
+        <li>Fifth Circuit U.S. Court of Appeals</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- PUBLICATIONS -->
+<section class="publications-section">
+  <div class="pub-inner">
+    <p class="section-label">Writing</p>
+    <h2>Recent Publications</h2>
+    <ul class="pub-list rl-truncate">
+      <li><a href="https://www.ehstoday.com/construction/article/55300992/proactive-safety-planning-is-vital-to-construction-safety" target="_blank">Proactive Safety Planning is Vital to Construction Safety <div class="pub-meta">EHS Today &nbsp;·&nbsp; July 2025</div></a></li>
+      <li><a href="https://joom.ag/TDtd/p4" target="_blank">Essential Practices for Safe Trench Work in Utility Construction <div class="pub-meta">Ditchmen Magazine &nbsp;·&nbsp; June 2024</div></a></li>
+      <li><a href="https://www.law.com/dailybusinessreview/2024/07/02/floridas-new-procedure-for-removing-squatters-effective-in-july-use-with-caution/" target="_blank">Florida's New Procedure for Removing Squatters Effective in July: Use with Caution <div class="pub-meta">Daily Business Review &nbsp;·&nbsp; July 2024</div></a></li>
+      <li><a href="https://ampp.mydigitalpublication.com/may-2024/page-28" target="_blank">Safety Compliance in Abrasive Blasting Operations <div class="pub-meta">CoatingsPro Magazine &nbsp;·&nbsp; May 2024</div></a></li>
+      <li><a href="https://www.roofingcontractor.com/articles/99348-florida-aims-to-standardize-construction-lien-waivers" target="_blank">Florida Aims to Standardize Construction Lien Waivers <div class="pub-meta">Roofing Contractor &nbsp;·&nbsp; April 2024</div></a></li>
+      <li><a href="https://www.law.com/dailybusinessreview/2023/05/03/fla-shortens-time-for-filing-construction-related-suits-imposes-materiality-threshold/" target="_blank">Florida Shortens Time for Filing Construction-Related Suits, Imposes Materiality Threshold <div class="pub-meta">Daily Business Review &nbsp;·&nbsp; April 2023</div></a></li>
+      <li><a href="https://www.jdsupra.com/legalnews/florida-shortens-time-for-filing-6387899/" target="_blank">Florida Shortens Time for Filing Construction-Related Suits, Imposes Materiality Threshold <div class="pub-meta">JD Supra &nbsp;·&nbsp; April 2023</div></a></li>
+      <li><a href="https://roofingmagazine.com/safety-obligations-under-the-osh-act-can-extend-to-non-employees-and-other-trades/" target="_blank">Safety Obligations Under the OSH Act Can Extend to Non-Employees and Other Trades <div class="pub-meta">Roofing Magazine &nbsp;·&nbsp; July 2020</div></a></li>
+      <li><a href="https://www.rooferscoffeeshop.com/post/six-important-tips-for-maintaining-ladder-safety-while-roofing" target="_blank">Six Important Tips for Maintaining Ladder Safety While Roofing <div class="pub-meta">Roofers Coffee Shop &nbsp;·&nbsp; August 2020</div></a></li>
+      <li><a href="https://www.roofingcontractor.com/articles/94652-covid-19-mask-requirements-in-construction" target="_blank">COVID-19: Mask Requirements in Construction <div class="pub-meta">Roofing Contractor &nbsp;·&nbsp; June 2020</div></a></li>
+      <li><a href="https://nace.mydigitalpublication.com/publication/?m=61415&i=616607&p=30&ver=html5" target="_blank">Managing Tragedy: Overcoming Accidents and Fatalities in the Workplace <div class="pub-meta">CoatingsPro Magazine &nbsp;·&nbsp; March 2018</div></a></li>
+      <li><a href="https://www.rooferscoffeeshop.com/post/four-important-tips-to-reduce-struck-by-hazards-in-roofing" target="_blank">Four Important Tips to Reduce Struck-by Hazards in Roofing <div class="pub-meta">Roofers Coffee Shop &nbsp;·&nbsp; September 2020</div></a></li>
+      <li><a href="https://issuu.com/roofingflorida/docs/august_2020_dbfc19383029ba/10" target="_blank">COVID-19 Restrictions and Heat-Related Injuries and Illness <div class="pub-meta">Florida Roofing Magazine &nbsp;·&nbsp; August 2020</div></a></li>
+    </ul>
+  </div>
+</section>
+<!-- REPRESENTATIVE SERVICES -->
+<section class="services-section">
+  <div class="services-inner">
+    <p class="section-label">What We Handle</p>
+    <h2 class="section-title">Representative Services</h2>
+    <div class="services-grid">
+      <div class="service-col">
+        <h3>Construction Law</h3>
+        <ul class="rl-truncate">
+          <li>Reviewing and negotiating contracts between contractors, suppliers, and owners</li>
+          <li>Litigating claims involving construction defects, scheduling, and payment disputes</li>
+          <li>Drafting lien claims and notices of nonpayment to payment bond sureties</li>
+          <li>Defending disciplinary actions and investigations administered by DBPR/CILB</li>
+          <li>Assisting with construction and various trade licensing applications</li>
+          <li>Defending against OSHA citations and advising on safety compliance matters</li>
+          <li>Drafting routine contracts, such as customer agreements and form subcontracts</li>
+          <li>Addressing permitting issues and building department misconduct</li>
+        </ul>
+      </div>
+      <div class="service-col">
+        <h3>Business Law</h3>
+        <ul class="rl-truncate">
+          <li>Incorporating and organizing new business entities; drafting governance documents</li>
+          <li>Litigating breach of contract and tort claims involving commercial transactions</li>
+          <li>Defending regulatory enforcement actions such as OSHA safety citations</li>
+          <li>Responding to improper conduct, such as unfair competition or false reviews</li>
+          <li>Preparing routine-use contracts, such as customer terms of service</li>
+          <li>Reviewing and negotiating business-to-business contracts for vendor services</li>
+          <li>Serving as general counsel for compliance and corporate governance issues</li>
+          <li>Litigating claims between partners and co-owners of businesses</li>
+        </ul>
+      </div>
+      <div class="service-col">
+        <h3>Civil Litigation</h3>
+        <ul class="rl-truncate">
+          <li>Representing property owners in eviction, unlawful detainer, and ejectment actions</li>
+          <li>Litigating contract and tort claims between buyers, sellers, and transacting parties</li>
+          <li>Responding to code violations administered by code enforcement agencies</li>
+          <li>Litigating claims between owners of adjacent and neighboring real property</li>
+          <li>Challenging and resolving improper lien claims on behalf of property owners</li>
+          <li>Litigating actions involving misappropriation of investment opportunities</li>
+          <li>Preparing title insurance claims on behalf of property owners</li>
+          <li>Litigating claims between joint owners of real property, such as partition actions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- INTAKE FORM -->
+<section class="cta-section" id="intake">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <p class="section-label">Get Help</p>
+      <h2 class="section-title">Ready to speak with an attorney?</h2>
+      <p>Complete the form and our team will follow up promptly. You can also reach us directly by phone.</p>
+      <a href="tel:4072582002" class="cta-phone">407.258.2002</a>
+      <p class="cta-hours">Monday – Friday &nbsp;|&nbsp; 9:00 AM – 5:00 PM</p>
+    </div>
+    <div class="form-box">
+      <h3>Request a Consultation</h3>
+      <form action="https://formspree.io/f/xgonadnj" method="POST" autocomplete="off" id="desktopForm">
+        <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
+        <label for="d-name">Name</label>
+        <input type="text" id="d-name" name="name" placeholder="Jane Smith" required autocomplete="new-password">
+        <label for="d-email">Email</label>
+        <input type="email" id="d-email" name="email" placeholder="jane@example.com" required autocomplete="new-password">
+        <label for="d-phone">Phone</label>
+        <input type="tel" id="d-phone" name="phone" placeholder="(407) 555-0000" autocomplete="new-password">
+        <label for="d-message">Briefly Describe Your Legal Matter</label>
+        <textarea id="d-message" name="message" rows="4" placeholder="Tell us about your situation..." required></textarea>
+        <button type="submit">Get Help →</button>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="../" class="logo">READY LEGAL</a>
+        <p>Prompt, capable, and effective legal representation for Orlando's small business community. Construction law, business law, and litigation throughout Florida.</p>
+        <br>
+        <p style="font-size:11px; color:rgba(255,255,255,0.22);">Ready Legal is the operating name of Travis McConnell, PLLC.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="../counsel/">Counsel</a></li>
+          <li><a href="../practice-areas/">Practice Areas</a></li>
+          <li><a href="../pricing/">Pricing</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../resources/">Resources</a></li>
+ <li><a href="../articles/">Articles</a></li>
+ <li><a href="../areas/">Service Areas</a></li>
+          <li><a href="#intake" onclick="if (window.innerWidth <= 960) { openMobileForm(); return false; }">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          924 N. Magnolia Avenue<br>
+          Suite 202, #1178<br>
+          Orlando, FL 32803<br>
+          <span style="font-size:11px; color:rgba(255,255,255,0.25);">*Postbox — mailing only</span>
+          <br><br>
+          <a href="tel:4072582002">(407) 258-2002</a><br>
+          <a href="mailto:admin@readylegal.net">admin@readylegal.net</a><br>
+          <a href="../">www.readylegal.net</a>
+          <br><br>
+          Veteran Owned 🇺🇸
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">
+        The information on this page is for general informational purposes only and does not constitute legal advice. Nothing here should be interpreted as an offer to provide legal services. No attorney-client relationship is formed until a written engagement agreement has been executed by both parties. Services are limited to matters involving the State of Florida.
+      </p>
+      <p class="footer-copy">© 2026 Ready Legal</p>
+    </div>
+  </div>
+</footer>
+<!-- HAMBURGER SCRIPT -->
+<script>
+var hamburger = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobileMenu');
+var isOpen = false;
+hamburger.addEventListener('click', function() {
+  isOpen = !isOpen;
+  hamburger.classList.toggle('open', isOpen);
+  mobileMenu.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  mobileMenu.setAttribute('aria-hidden', !isOpen);
+});
+mobileMenu.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    isOpen = false;
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+  });
+});
+</script>
+<!-- FORM SUBMIT — AJAX handler, fixes iOS autofill not serializing on native POST -->
+<script>
+document.querySelectorAll('form[action*="formspree"]').forEach(function(form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var data = {};
+    form.querySelectorAll('input, textarea, select').forEach(function(el) {
+      if (el.name) data[el.name] = el.value;
+    });
+    var required = form.querySelectorAll('[required]');
+    var missing = false;
+    required.forEach(function(el) {
+      if (!el.value.trim()) { missing = true; el.style.borderColor = '#e53e3e'; }
+      else el.style.borderColor = '';
+    });
+    if (missing) return;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(r) {
+      if (r.ok) { btn.textContent = 'Sent ✓'; form.reset(); }
+      else { btn.disabled = false; btn.textContent = 'Get Help →'; alert('Something went wrong. Please call us directly at (407) 258-2002.'); }
+    }).catch(function() {
+      btn.disabled = false; btn.textContent = 'Get Help →'; alert('Something went wrong. Please call us directly at (407) 258-2002.');
+    });
+  });
+});
+</script>
+<script src="../site.js?v=1" defer></script>
+</body>
+</html>

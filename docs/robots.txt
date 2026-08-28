@@ -1,0 +1,4 @@
+# PREVIEW BUILD — this copy is not the live site.
+# Replace this file with the launch version before pointing DNS at it.
+User-agent: *
+Disallow: /

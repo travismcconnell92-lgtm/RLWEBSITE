@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Ready Legal</title>
+<meta name="description" content="Ready Legal is a business and construction law firm founded in Orlando, FL, serving Central Florida's small business community.">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=1">
+<link rel="canonical" href="https://readylegal.net/about/">
+</head>
+<body class="page-about">
+<!-- HEADER -->
+<header>
+  <a href="../" class="logo">READY LEGAL</a>
+  <a href="tel:4072582002" class="header-phone-mobile">(407) 258-2002</a>
+  <nav>
+    <a href="../counsel/">Counsel</a>
+    <a href="../practice-areas/">Practice Areas</a>
+    <a href="../pricing/">Pricing</a>
+    <a href="../about/" style="color:white;">About</a>
+    <a href="../resources/">Resources</a>
+    <a href="#intake" class="nav-cta">Get Help</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="../counsel/">Counsel</a>
+  <a href="../practice-areas/">Practice Areas</a>
+  <a href="../pricing/">Pricing</a>
+  <a href="../about/" style="color:white;">About</a>
+  <a href="../resources/">Resources</a>
+  <a href="#" onclick="openMobileForm(); return false;" class="mobile-cta">Get Help</a>
+</div>
+<!-- MOBILE CONSULT BAR -->
+<div class="mobile-consult-bar" id="mobileConsultBar">
+  <button onclick="openMobileForm()" aria-label="Request a consultation">Request a Consultation</button>
+</div>
+<!-- MOBILE FORM PANEL -->
+<div class="mobile-form-panel-overlay" id="mobileFormOverlay" onclick="closeMobileForm()"></div>
+<div class="mobile-form-panel" id="mobileFormPanel">
+  <button class="mobile-form-panel-close" onclick="closeMobileForm()" aria-label="Close">&#x2715;</button>
+  <div class="form-box" style="box-shadow:none;border:none;padding:0;">
+    <h3>Request a Consultation</h3>
+    <form action="https://formspree.io/f/xgonadnj" method="POST" autocomplete="off" id="mobileForm">
+      <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
+      <label for="mob-name">Name</label>
+      <input type="text" id="mob-name" name="name" placeholder="Jane Smith" required autocomplete="new-password">
+      <label for="mob-email">Email</label>
+      <input type="email" id="mob-email" name="email" placeholder="jane@example.com" required autocomplete="new-password">
+      <label for="mob-phone">Phone</label>
+      <input type="tel" id="mob-phone" name="phone" placeholder="(407) 555-0000" autocomplete="new-password">
+      <label for="mob-message">Briefly Describe Your Legal Matter</label>
+      <textarea id="mob-message" name="message" rows="3" placeholder="Tell us about your situation..." required></textarea>
+      <button type="submit">Get Help &rarr;</button>
+    </form>
+  </div>
+</div>
+<!-- HERO -->
+<section class="hero">
+  <video class="hero-video" data-hero="../images/hero-about" autoplay muted loop playsinline
+         preload="none" aria-hidden="true" tabindex="-1"
+         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"></video>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Ready Legal, Orlando, Florida</p>
+    <h1>About</h1>
+    <p class="hero-sub">A business and construction law firm serving Central Florida's small business community from the heart of Orlando.</p>
+  </div>
+</section>
+<!-- TRUST BAR (scrolling marquee) -->
+<div class="trust-bar">
+  <div class="trust-track">
+    <span class="trust-item"><span>&#9733;</span> Best Lawyers&reg; Recognized</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item"><span>&#9733;</span> Super Lawyers&reg; Recognized</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item"><span>&#9733;</span> Veteran Owned</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item"><span>&#9733;</span> Florida Statewide</span>
+    <span class="trust-sep">|</span>
+    <!-- duplicate for seamless mobile loop -->
+    <span class="trust-item"><span>&#9733;</span> Best Lawyers&reg; Recognized</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item"><span>&#9733;</span> Super Lawyers&reg; Recognized</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item"><span>&#9733;</span> Veteran Owned</span>
+    <span class="trust-sep">|</span>
+    <span class="trust-item"><span>&#9733;</span> Florida Statewide</span>
+    <span class="trust-sep">|</span>
+  </div>
+</div>
+<!-- INTRO BAND -->
+<section class="intro-band">
+  <div class="intro-band-inner">
+    <div class="intro-image">
+      <img loading="lazy" src="../images/travis-mcconnell-older.jpg" alt="Ready Legal, Orlando, Florida">
+    </div>
+    <div class="intro-content">
+      <p class="section-label">Who We Are</p>
+      <h2>Orlando's Small Business Law Firm</h2>
+      <p>Ready Legal is a business law firm focused on construction law and real estate litigation. Centrally located in Orlando, it serves all of Central Florida. The firm was built with a singular mission: to provide cost-effective, personalized legal representation to the hardworking contractors, real estate professionals, and entrepreneurs who keep the community growing.</p>
+    </div>
+  </div>
+</section>
+<!-- FOUNDATION SECTION -->
+<section class="story-section">
+  <div class="story-grid">
+    <div class="story-text">
+      <p class="section-label">Foundation</p>
+      <h2 class="section-title">Built From the Ground Up</h2>
+      <p>Ready Legal was founded in Orlando in 2023 with a singular focus: providing small businesses with prompt, capable, and cost-effective legal representation. The firm draws on a decade of construction industry experience, from Army engineering to large-firm practice, to serve Florida contractors, suppliers, and small business owners with the same standard of representation that larger companies take for granted.</p>
+      <a href="../counsel/" class="btn-primary">Meet the Attorney &rarr;</a>
+    </div>
+    <div class="story-aside">
+      <div class="aside-card">
+        <h4>Recognition</h4>
+        <p>Florida Super Lawyers&reg; Rising Stars (2021-2025) &bull; Best Lawyers&reg; Ones to Watch (2022-2024) &bull; Construction Law Society of America, Invitee for Associate Fellowship (2022, 2024).</p>
+      </div>
+      <div class="aside-card">
+        <h4>Firm Profile</h4>
+        <p>Solo practice. Virtual office. No unnecessary overhead passed on to clients. Lean and efficient by design, so the focus stays on your matter, not firm administration.</p>
+      </div>
+      <div class="aside-card">
+        <h4>Practice Areas</h4>
+        <p>Construction Law &bull; Business Law &bull; Civil Litigation. Serving Florida contractors, suppliers, landlords, and small business owners statewide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+<!-- PURPOSE SECTION -->
+<section class="story-section">
+  <div class="story-grid reverse">
+    <div class="story-aside">
+      <div class="aside-card">
+        <h4>The Name</h4>
+        <p>In the U.S. reserve armed forces, "readiness" refers to a unit's level of preparation and discipline, available when called upon. Ready Legal's name pays homage to this core value of prompt and effective service.</p>
+      </div>
+      <div class="aside-card">
+        <h4>Solo Practice Advantage</h4>
+        <p>As a solo practice, Ready Legal maintains a 0% employee turnover rate. Your matter is handled by the same attorney from start to finish, with no handoffs or gatekeepers.</p>
+      </div>
+      <div class="aside-card">
+        <h4>Communication Promise</h4>
+        <p>A common client complaint in the legal industry is lack of communication. When you call with a question, you will speak directly to your attorney.</p>
+      </div>
+    </div>
+    <div class="story-text">
+      <p class="section-label">Client Service</p>
+      <h2 class="section-title">Clients First, Always</h2>
+      <p>Ready Legal was born out of the idea that Orlando's small business community should have access to prompt, personalized, and cost-effective legal representation in their times of need. That core value is embodied in the firm's name.</p>
+      <p>Ready Legal offers small businesses a personalized alternative to standard law firm bureaucracy, providing each client with individualized and consistent representation. The firm prides itself on deep, longstanding attorney-client relationships built on direct communication and consistent handling of every matter.</p>
+      <p>Ready Legal understands that time is valuable and a business is its owner's livelihood. That's why the firm prioritizes accessibility, responsiveness, and practical solutions that work in the real world.</p>
+    </div>
+  </div>
+</section>
+<!-- COMMITMENTS SECTION -->
+<section class="commitments-section">
+  <div class="commitments-inner">
+    <p class="section-label">Clients First, Always</p>
+    <h2>Three Commitments to Every Client</h2>
+    <p class="commitments-intro">Ready Legal believes in the importance of individualized and consistent representation. That means three basic commitments to every firm client, without exception.</p>
+    <div class="commitments-grid">
+      <div class="commitment-card rl-expand">
+        <div class="commitment-num">01</div>
+        <h3>Individualized Attention</h3>
+        <p>Your legal matter will receive individualized attention and will not be ignored or deprioritized in favor of larger clients.</p>
+      </div>
+      <div class="commitment-card rl-expand">
+        <div class="commitment-num">02</div>
+        <h3>Effective Pricing</h3>
+        <p>As a solo law practice, Ready Legal is able to handle matters efficiently and effectively, keeping overhead low and passing that value directly to clients.</p>
+      </div>
+      <div class="commitment-card rl-expand">
+        <div class="commitment-num">03</div>
+        <h3>Consistent Representation</h3>
+        <p>As long as you are a client, your case will be handled by the same attorney from intake through resolution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- VALUES SECTION -->
+<section class="values-section">
+  <p class="section-label">What Sets Us Apart</p>
+  <h2 class="section-title">More Than Legal Knowledge</h2>
+  <div class="values-grid">
+    <div class="value-card rl-expand">
+      <div class="value-icon">&#127959;&#65039;</div>
+      <h3>Industry Focus</h3>
+      <p>Deep roots in the construction industry, from Army engineering to contractor representation, give Ready Legal a practical understanding that most attorneys simply don't have.</p>
+    </div>
+    <div class="value-card rl-expand">
+      <div class="value-icon">&#128188;</div>
+      <h3>Business Judgment</h3>
+      <p>As an entrepreneur-driven firm, Ready Legal sees itself as a partner in its clients' success. The firm speaks the language of contractors, developers, and small business owners.</p>
+    </div>
+    <div class="value-card rl-expand">
+      <div class="value-icon">&#127482;&#127480;</div>
+      <h3>Veteran Owned</h3>
+      <p>Founded by a U.S. Army Reserve veteran, Ready Legal brings military discipline, mission focus, and a commitment to service to every client engagement.</p>
+    </div>
+  </div>
+</section>
+<!-- PULLQUOTE -->
+<section class="pullquote-section">
+  <div class="pullquote-inner">
+    <p class="pullquote-text">Ready Legal doesn't just handle cases. It builds relationships. Whether resolving today's legal challenge or planning for tomorrow's growth, the firm stands ready to help clients succeed.</p>
+    <p class="pullquote-attr">Ready Legal, Orlando, Florida</p>
+  </div>
+</section>
+<!-- INTAKE FORM -->
+<section class="cta-section" id="intake">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <p class="section-label">Get Help</p>
+      <h2 class="section-title">Ready to speak with an attorney?</h2>
+      <p>Complete the form and our team will follow up promptly. You can also reach us directly by phone.</p>
+      <a href="tel:4072582002" class="cta-phone">407.258.2002</a>
+      <p class="cta-hours">Monday - Friday &nbsp;|&nbsp; 9:00 AM - 5:00 PM</p>
+    </div>
+    <div class="form-box">
+      <h3>Request a Consultation</h3>
+      <form action="https://formspree.io/f/xgonadnj" method="POST" autocomplete="off" id="desktopForm">
+        <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
+        <label for="d-name">Name</label>
+        <input type="text" id="d-name" name="name" placeholder="Jane Smith" required autocomplete="new-password">
+        <label for="d-email">Email</label>
+        <input type="email" id="d-email" name="email" placeholder="jane@example.com" required autocomplete="new-password">
+        <label for="d-phone">Phone</label>
+        <input type="tel" id="d-phone" name="phone" placeholder="(407) 555-0000" autocomplete="new-password">
+        <label for="d-message">Briefly Describe Your Legal Matter</label>
+        <textarea id="d-message" name="message" rows="4" placeholder="Tell us about your situation..." required></textarea>
+        <button type="submit">Get Help &rarr;</button>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="../" class="logo">READY LEGAL</a>
+        <p>Prompt, capable, and effective legal representation for Orlando's small business community. Construction law, business law, and litigation throughout Florida.</p>
+        <br>
+        <p style="font-size:11px; color:rgba(255,255,255,0.22);">Ready Legal is the operating name of Travis McConnell, PLLC.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="../counsel/">Counsel</a></li>
+          <li><a href="../practice-areas/">Practice Areas</a></li>
+          <li><a href="../pricing/">Pricing</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../resources/">Resources</a></li>
+ <li><a href="../articles/">Articles</a></li>
+ <li><a href="../areas/">Service Areas</a></li>
+          <li><a href="#intake" onclick="if (window.innerWidth <= 960) { openMobileForm(); return false; }">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          924 N. Magnolia Avenue<br>
+          Suite 202, #1178<br>
+          Orlando, FL 32803<br>
+          <span style="font-size:11px; color:rgba(255,255,255,0.25);">*Postbox — mailing only</span>
+          <br><br>
+          <a href="tel:4072582002">(407) 258-2002</a><br>
+          <a href="mailto:admin@readylegal.net">admin@readylegal.net</a><br>
+          <a href="../">www.readylegal.net</a>
+          <br><br>
+          Veteran Owned &#127482;&#127480;
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">The information on this page is for general informational purposes only and does not constitute legal advice. Nothing here should be interpreted as an offer to provide legal services. No attorney-client relationship is formed until a written engagement agreement has been executed by both parties. Services are limited to matters involving the State of Florida.</p>
+      <p class="footer-copy">&copy; 2026 Ready Legal</p>
+    </div>
+  </div>
+</footer>
+<script>
+/* HAMBURGER */
+var hamburger = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobileMenu');
+var isOpen = false;
+hamburger.addEventListener('click', function() {
+  isOpen = !isOpen;
+  hamburger.classList.toggle('open', isOpen);
+  mobileMenu.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  mobileMenu.setAttribute('aria-hidden', !isOpen);
+});
+mobileMenu.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    isOpen = false;
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+  });
+});
+</script>
+<script>
+/* MOBILE FORM PANEL */
+var _scrollY = 0;
+function openMobileForm() {
+  _scrollY = window.scrollY;
+  document.getElementById('mobileFormPanel').classList.add('open');
+  document.getElementById('mobileFormOverlay').classList.add('open');
+  document.body.style.position = 'fixed';
+  document.body.style.top = '-' + _scrollY + 'px';
+  document.body.style.width = '100%';
+  document.body.style.overflowX = 'hidden';
+}
+function closeMobileForm() {
+  document.getElementById('mobileFormPanel').classList.remove('open');
+  document.getElementById('mobileFormOverlay').classList.remove('open');
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  document.body.style.overflowX = '';
+  window.scrollTo(0, _scrollY);
+}
+</script>
+<script>
+/* FORMSPREE AJAX */
+document.querySelectorAll('form[action*="formspree"]').forEach(function(form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var data = {};
+    form.querySelectorAll('input, textarea, select').forEach(function(el) { if (el.name) data[el.name] = el.value; });
+    var missing = false;
+    form.querySelectorAll('[required]').forEach(function(el) {
+      if (!el.value.trim()) { missing = true; el.style.borderColor = '#e53e3e'; }
+      else el.style.borderColor = '';
+    });
+    if (missing) return;
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(r) {
+      if (r.ok) { btn.textContent = 'Sent ✓'; form.reset(); }
+      else { btn.disabled = false; btn.textContent = 'Get Help →'; alert('Something went wrong. Please call us at (407) 258-2002.'); }
+    }).catch(function() { btn.disabled = false; btn.textContent = 'Get Help →'; alert('Something went wrong. Please call us at (407) 258-2002.'); });
+  });
+});
+</script>
+<script>
+/* PROXIMITY EFFECT */
+(function () {
+  var CFG = { range: 180, maxScale: 1.07, maxBright: 1.14, maxLift: 4, easingPower: 2,
+    transIn: 'transform 0.07s ease-out, filter 0.07s ease-out',
+    transOut: 'transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.45s ease' };
+  if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+  var targets = [];
+  [{ wrap: 'header', items: '.nav-cta' }, { wrap: '.story-aside', items: '.aside-card' },
+   { wrap: '.commitments-grid', items: '.commitment-card' }, { wrap: '.values-grid', items: '.value-card' }]
+  .forEach(function(def) {
+    document.querySelectorAll(def.wrap).forEach(function(root) {
+      root.querySelectorAll(def.items).forEach(function(el) {
+        el.style.willChange = 'transform, filter'; el.style.transition = CFG.transOut; targets.push(el);
+      });
+    });
+  });
+  if (!targets.length) return;
+  function distToRect(x, y, r) { var dx = Math.max(r.left - x, 0, x - r.right), dy = Math.max(r.top - y, 0, y - r.bottom); return Math.sqrt(dx*dx+dy*dy); }
+  function ease(t) { return Math.pow(t, CFG.easingPower); }
+  var mx = -9999, my = -9999, raf = false;
+  function update() {
+    raf = false;
+    targets.forEach(function(el) {
+      var rect = el.getBoundingClientRect(), dist = distToRect(mx, my, rect);
+      if (dist >= CFG.range) { el.style.transition = CFG.transOut; el.style.transform = 'scale(1) translateY(0px)'; el.style.filter = 'brightness(1)'; return; }
+      var p = ease(1 - dist / CFG.range);
+      el.style.transition = CFG.transIn;
+      el.style.transform = 'scale(' + (1+(CFG.maxScale-1)*p).toFixed(4) + ') translateY(' + (-(CFG.maxLift*p)).toFixed(2) + 'px)';
+      el.style.filter = 'brightness(' + (1+(CFG.maxBright-1)*p).toFixed(4) + ')';
+    });
+  }
+  function sched() { if (!raf) { raf = true; requestAnimationFrame(update); } }
+  document.addEventListener('pointermove', function(e) { mx = e.clientX; my = e.clientY; sched(); });
+  document.addEventListener('pointerleave', function() { mx = -9999; my = -9999; sched(); });
+}());
+</script>
+<script src="../site.js?v=1" defer></script>
+</body></html>
