@@ -953,9 +953,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
    ====================================================================== */
 /* page-only rules and deliberate differences from the shared rules,
    kept in the original source order so the cascade behaves identically */
-.page-conflicts header { background:#0e2540; padding:30px; text-align:center; display: revert; align-items: revert; justify-content: revert; position: revert; top: revert; z-index: revert; height: revert; box-shadow: revert; }
-.page-conflicts header a { color:white; text-decoration:none; font-weight:700; font-size:40px; letter-spacing:1px; transition: color 0.3s ease; }
-.page-conflicts header a:hover { color:#ff802f; }
 .page-conflicts .hero { background: linear-gradient(rgba(14,37,64,0.63), rgba(14,37,64,0.67)), url("images/travis-mcconnell-older.jpg"); background-size:cover; background-position:top center; color:white; padding:120px 20px; text-align:center; position:relative; min-height: revert; display: revert; align-items: revert; overflow: revert; }
 .page-conflicts .hero h1 { font-size:36px; max-width:900px; margin:auto; margin-bottom:20px; font-family: revert; font-weight: revert; line-height: revert; letter-spacing: revert; opacity: revert; animation: revert; }
 .page-conflicts .hero p { font-size:16px; max-width:650px; margin:auto; margin-bottom:30px; }
@@ -979,9 +976,8 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-conflicts input { width:100%; padding:12px; margin-top:6px; margin-bottom:18px; border:1px solid #ddd; border-radius:6px; font-size:14px; box-sizing:border-box; }
 .page-conflicts select { width:100%; padding:12px; margin-top:6px; margin-bottom:18px; border:1px solid #ddd; border-radius:6px; font-size:14px; box-sizing:border-box; }
 .page-conflicts textarea { width:100%; padding:12px; margin-top:6px; margin-bottom:18px; border:1px solid #ddd; border-radius:6px; font-size:14px; box-sizing:border-box; }
-.page-conflicts button { background:#ff802f; border:none; color:var(--navy); padding:14px; font-size:16px; border-radius:6px; cursor:pointer; font-weight:600; width:100%; }
-.page-conflicts button:hover { background:#e6701f; }
-.page-conflicts footer { text-align:center; padding:40px 20px; font-size:13px; color:#555; max-width:900px; margin:auto; line-height:1.6; background: revert; }
+.page-conflicts form button { background:#ff802f; border:none; color:var(--navy); padding:14px; font-size:16px; border-radius:6px; cursor:pointer; font-weight:600; width:100%; font-family: revert; letter-spacing: revert; transition: revert; }
+.page-conflicts form button:hover { background:#e6701f; }
 
 
 /* ======================================================================
@@ -989,9 +985,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
    ====================================================================== */
 /* page-only rules and deliberate differences from the shared rules,
    kept in the original source order so the cascade behaves identically */
-.page-eviction header { background: #0e2540; padding: 30px; text-align: center; display: revert; align-items: revert; justify-content: revert; position: revert; top: revert; z-index: revert; height: revert; box-shadow: revert; }
-.page-eviction header a { color: white; text-decoration: none; font-weight: 700; font-size: 40px; letter-spacing: 1px; transition: color 0.3s ease; }
-.page-eviction header a:hover { color: #ff802f; }
 .page-eviction .hero { background: linear-gradient(rgba(14,37,64,0.63), rgba(14,37,64,0.67)), url("images/travis-mcconnell-older.jpg"); background-size: cover; background-position: top center; color: white; padding: 120px 20px; text-align: center; position: relative; min-height: revert; display: revert; align-items: revert; overflow: revert; }
 .page-eviction .hero h1 { font-size: 36px; max-width: 900px; margin: auto; margin-bottom: 20px; font-family: revert; font-weight: revert; line-height: revert; letter-spacing: revert; opacity: revert; animation: revert; }
 .page-eviction .hero p { font-size: 16px; max-width: 650px; margin: auto; margin-bottom: 30px; }
@@ -1038,9 +1031,8 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .page-eviction .remove-btn:hover { background: #cc3333; color: white; }
 .page-eviction .add-btn { background: transparent; border: 2px solid #0e2540; color: #0e2540; padding: 9px 18px; font-size: 14px; border-radius: 6px; cursor: pointer; font-weight: 600; width: auto; margin-bottom: 22px; display: inline-block; transition: all 0.2s ease; }
 .page-eviction .add-btn:hover { background: #0e2540; color: white; }
-.page-eviction button[type="submit"] { background: #ff802f; border: none; color: var(--navy); padding: 14px; font-size: 16px; border-radius: 6px; cursor: pointer; font-weight: 600; width: 100%; margin-top: 12px; transition: background 0.2s ease; }
-.page-eviction button[type="submit"]:hover { background: #e6701f; }
-.page-eviction footer { text-align: center; padding: 40px 20px; font-size: 13px; color: #555; max-width: 900px; margin: auto; line-height: 1.6; background: revert; }
+.page-eviction form button[type="submit"] { background: #ff802f; border: none; color: var(--navy); padding: 14px; font-size: 16px; border-radius: 6px; cursor: pointer; font-weight: 600; width: 100%; margin-top: 12px; transition: background 0.2s ease; }
+.page-eviction form button[type="submit"]:hover { background: #e6701f; }
 
 
 /* ======================================================================
@@ -2544,6 +2536,330 @@ footer,
   }
   .page-clients .cl-feature-icon { width: 64px; height: 64px; font-size: 28px; }
   .page-clients .cl-feature p { font-size: 15px; }
+}
+
+
+/* --- 6. CONFLICT CHECK FORM PAGES ----------------------------------------
+   These two pages predate the current site and carried their own header (the
+   words READY LEGAL, centred, 40px, no navigation) and their own footer (grey
+   centred text in a 900px column). Both are gone from conflicts.css and
+   eviction.css now, so the shared header and footer apply and the pages match
+   every other page top and bottom.
+
+   Their old footer also carried two paragraphs of form-specific disclaimer.
+   The general half duplicated what the shared footer already says; the half
+   that is particular to a conflict check moved into the page as a notice
+   directly under the form. */
+/* Hero: a video behind the headline, the same treatment every other hero on
+   the site uses. The old rule painted a still photo in as a CSS background,
+   which cannot be swapped for the portrait crop on a phone the way the
+   `data-hero` videos can.
+
+   The footage is bright (a white desk under office light), so the scrim is
+   heavier than the navy heroes need. Measured white-on-scrim at the headline
+   and the paragraph before settling on these two stops. */
+.page-conflicts .hero,
+.page-eviction .hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy);
+  padding: 110px 24px;
+  text-align: center;
+  color: var(--white);
+}
+.page-conflicts .hero-overlay,
+.page-eviction .hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(rgba(14, 37, 64, 0.80), rgba(14, 37, 64, 0.86));
+}
+.page-conflicts .hero-inner,
+.page-eviction .hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+/* the inherited line-height left a visible gap between the two lines the
+   headline breaks into on a phone */
+.page-conflicts .hero h1,
+.page-eviction .hero h1 {
+  line-height: 1.15;
+}
+/* Justified, with the last line kept centred so it still sits under a centred
+   headline rather than hanging off to the left. Justification is dropped on a
+   phone: at that measure the browser stretches four or five words across the
+   line and the word gaps become rivers. */
+.page-conflicts .hero-inner p,
+.page-eviction .hero-inner p {
+  text-align: justify;
+  text-align-last: center;
+  hyphens: auto;
+}
+@media (max-width: 600px) {
+  .page-conflicts .hero-inner p,
+  .page-eviction .hero-inner p {
+    text-align: center;
+    hyphens: manual;
+  }
+}
+@media (max-width: 960px) {
+  .page-conflicts .hero,
+  .page-eviction .hero { padding: 72px 22px; }
+}
+
+/* Desktop only: the form moves left and Travis sits beside it, so the page
+   has a face on it at the moment someone is deciding whether to hand over
+   their matter. The aside is display:none under 960px rather than stacked,
+   because a headshot pushed between a long form and its submit button on a
+   phone is an obstacle, not a reassurance.
+
+   .form-wrapper keeps its own max-width and auto margins from the page sheet,
+   which would centre it inside its grid column; justify-self pins it to the
+   left edge of that column instead. */
+.page-conflicts .form-layout,
+.page-eviction .form-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 60px;
+  align-items: start;
+}
+.page-conflicts .form-layout .form-wrapper,
+.page-eviction .form-layout .form-wrapper {
+  margin: 0;
+  justify-self: stretch;
+}
+.page-conflicts .form-aside,
+.page-eviction .form-aside {
+  padding-top: 8px;
+}
+.page-conflicts .form-aside img,
+.page-eviction .form-aside img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--r-md);
+  border-bottom: 3px solid var(--orange);
+  box-shadow: 0 10px 30px rgba(14, 37, 64, 0.16);
+}
+.page-conflicts .fa-name,
+.page-eviction .fa-name {
+  margin: 20px 0 2px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.page-conflicts .fa-role,
+.page-eviction .fa-role {
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange-text);
+}
+.page-conflicts .fa-note,
+.page-eviction .fa-note {
+  margin: 0 0 20px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text-light);
+}
+/* Credentials, lifted verbatim from the counsel page rather than written
+   fresh, so the recognitions named here are the ones already vetted for the
+   bio and the sitewide trust bar. */
+.page-conflicts .fa-stats,
+.page-eviction .fa-stats {
+  list-style: none;
+  margin: 0;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--gray);
+}
+.page-conflicts .fa-stats li,
+.page-eviction .fa-stats li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 11px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-light);
+}
+.page-conflicts .fa-stats li:last-child,
+.page-eviction .fa-stats li:last-child {
+  margin-bottom: 0;
+}
+.page-conflicts .fa-stats li::before,
+.page-eviction .fa-stats li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--orange);
+}
+
+/* The homepage review carousel, restated for a 300px column rather than a
+   960px band. Same markup and same script; the differences are all fit. No
+   prev/next arrows, since at this width they would sit on top of the card
+   instead of beside it, so the dots and the six-second auto-advance are the
+   only controls. The quote is clamped to four lines: a 13-line carousel of
+   full-length reviews would be taller than the form it is meant to support. */
+.page-conflicts .fa-reviews,
+.page-eviction .fa-reviews {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray);
+}
+.page-conflicts .rev-rating,
+.page-eviction .rev-rating {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 14px;
+  text-decoration: none;
+  width: fit-content;
+}
+.page-conflicts .rev-rating:hover .g-word,
+.page-eviction .rev-rating:hover .g-word { text-decoration: underline; }
+.page-conflicts .rev-rating-score,
+.page-eviction .rev-rating-score {
+  font-size: 26px; font-weight: 700; color: var(--navy); line-height: 1;
+}
+.page-conflicts .rev-rating-right,
+.page-eviction .rev-rating-right { display: flex; flex-direction: column; line-height: 1.25; }
+.page-conflicts .rev-rating-label,
+.page-eviction .rev-rating-label {
+  font-size: 13px; font-weight: 600;
+  font-family: 'Century Gothic', 'Futura', 'Trebuchet MS', 'Inter', sans-serif;
+}
+.page-conflicts .g-b, .page-eviction .g-b { color: #4285F4; }
+.page-conflicts .g-r, .page-eviction .g-r { color: #EA4335; }
+.page-conflicts .g-y, .page-eviction .g-y { color: #FBBC04; }
+.page-conflicts .g-g, .page-eviction .g-g { color: #34A853; }
+.page-conflicts .g-word, .page-eviction .g-word { color: var(--text-light); }
+.page-conflicts .rev-rating-stars,
+.page-eviction .rev-rating-stars { color: #FBBC04; font-size: 13px; letter-spacing: 2px; }
+
+.page-conflicts .rev-carousel, .page-eviction .rev-carousel { position: relative; }
+.page-conflicts .rev-viewport, .page-eviction .rev-viewport { overflow: hidden; border-radius: 8px; }
+.page-conflicts .rev-track, .page-eviction .rev-track { display: flex; transition: transform 0.45s ease; }
+.page-conflicts .rev-slide, .page-eviction .rev-slide { flex: 0 0 100%; min-width: 0; padding: 3px; }
+.page-conflicts .rev-card, .page-eviction .rev-card {
+  background: var(--white);
+  border: 1px solid var(--gray);
+  border-left: 4px solid var(--orange);
+  border-radius: 12px;
+  padding: 13px 15px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  height: 100%;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+.page-conflicts .rev-card:hover, .page-eviction .rev-card:hover { box-shadow: 0 8px 26px rgba(0,0,0,0.12); }
+.page-conflicts .rev-head, .page-eviction .rev-head { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+.page-conflicts .rev-avatar, .page-eviction .rev-avatar {
+  width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: var(--white);
+  font-weight: 700; font-size: 11px; letter-spacing: 1px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.page-conflicts .rev-slide:nth-child(even) .rev-avatar,
+.page-eviction .rev-slide:nth-child(even) .rev-avatar { background: var(--orange); }
+.page-conflicts .rev-name, .page-eviction .rev-name { font-weight: 700; font-size: 12px; color: var(--navy); line-height: 1.3; }
+.page-conflicts .rev-date, .page-eviction .rev-date { font-size: 10px; color: var(--text-light); }
+.page-conflicts .rev-stars, .page-eviction .rev-stars { color: #FBBC04; font-size: 12px; letter-spacing: 3px; margin-bottom: 7px; }
+.page-conflicts .rev-text, .page-eviction .rev-text {
+  font-size: 12px; color: var(--text); line-height: 1.6; font-weight: 300;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+}
+.page-conflicts .rev-source, .page-eviction .rev-source { font-size: 10px; color: var(--text-light); margin-top: 9px; letter-spacing: 0.5px; }
+.page-conflicts .rev-dots, .page-eviction .rev-dots { display: flex; gap: 6px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
+.page-conflicts .rev-dot, .page-eviction .rev-dot {
+  width: 6px; height: 6px; padding: 0; border: none; border-radius: 50%;
+  background: var(--gray); cursor: pointer; transition: background 0.2s;
+}
+.page-conflicts .rev-dot.active, .page-eviction .rev-dot.active { background: var(--orange); }
+.page-conflicts .fa-disclaimer, .page-eviction .fa-disclaimer {
+  margin: 14px 0 0; font-size: 10px; line-height: 1.6; color: var(--text-light);
+}
+
+@media (max-width: 1000px) {
+  .page-conflicts .form-layout,
+  .page-eviction .form-layout { grid-template-columns: minmax(0, 1fr) 250px; gap: 40px; }
+}
+@media (max-width: 960px) {
+  .page-conflicts .form-aside,
+  .page-eviction .form-aside { display: none; }
+  .page-conflicts .form-layout,
+  .page-eviction .form-layout { display: block; }
+  .page-conflicts .form-layout .form-wrapper,
+  .page-eviction .form-layout .form-wrapper { margin: 0 auto; }
+}
+
+.page-conflicts .form-notice,
+.page-eviction .form-notice {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 18px 22px;
+  border-left: 3px solid var(--gray);
+  background: var(--off-white);
+  border-radius: 0 8px 8px 0;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-light);
+}
+
+
+/* --- 8. ONE TREATMENT FOR PHOTOGRAPHS ------------------------------------
+   The feature photographs across the site each had 3px corners, which at that
+   radius reads as an accident rather than a decision. They now carry the same
+   treatment as the headshot beside the conflict check form: a 12px radius and
+   a 3px orange rule along the bottom edge.
+
+   Applied to the photographs that anchor a section, not to every image. Press
+   logos keep their square edges, because a rounded corner on someone else's
+   wordmark looks like a mistake, and the article card thumbnails are already
+   clipped by the card's own radius, so an orange rule under all 81 of them
+   would be noise rather than emphasis.
+
+   The counsel headshot wore its orange rule on top. Moved to the bottom so
+   every photograph on the site is marked the same way. */
+.page-home .why-image img,
+.page-counsel .profile-photo-wrap img,
+.page-practices .area-band-image img,
+.page-about .intro-image img,
+.page-post .post-hero img {
+  border-radius: var(--r-md);
+  border-top: none;
+  border-bottom: 3px solid var(--orange);
+}
+/* inline images inside an article: same corners, no rule, since they
+   illustrate a paragraph rather than open a section */
+.page-post .post-body img {
+  border-radius: var(--r-md);
+}
+/* the offset outline that frames three of those photographs, matched to the
+   new radius so the two curves stay parallel */
+.page-home .why-image::before,
+.page-practices .area-band-image::before,
+.page-about .intro-image::before {
+  border-radius: var(--r-md);
+}
+
+
+/* --- 7. TRAVIS IN COLOUR -------------------------------------------------
+   The counsel headshot was rendered fully desaturated and the about photo at
+   15%. Both are now shown as shot. The press logos on the homepage keep their
+   desaturation, since that one exists to stop a row of competing brand colours
+   from pulling focus, and the practice-area band photos keep their 20%, since
+   those are stock images rather than photographs of Travis. */
+.page-counsel .profile-photo-wrap img,
+.page-about .intro-image img {
+  filter: none;
 }
 
 
