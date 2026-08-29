@@ -2814,6 +2814,89 @@ footer,
 }
 
 
+/* --- 9. ICONS ------------------------------------------------------------
+   Named `.rl-ico`, not `.rl-icon`: that one is already the site's own class
+   for the tap-to-expand card badges, which _mobile-patterns.css sizes to a
+   34px rounded tile. An SVG wearing it inherited that box.
+   Every icon sizes itself off the type around it. The emoji they replaced
+   were sized with font-size, and those declarations are still in place on the
+   card badges, the tab labels and the form section headings, so `1em` lands
+   each drawing at exactly the size its emoji occupied without touching a
+   single one of those rules.
+
+   Optical alignment: a glyph sits on the baseline and an SVG box does not, so
+   the box is nudged down a fraction to put the icon's visual centre on the
+   text's centre. */
+.rl-ico {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.13em;
+  flex-shrink: 0;
+}
+/* Where an icon is the only thing in its element the em-box is the element's
+   own font-size, and a few of those elements were sized for a glyph with side
+   bearings. These give the drawing back the room the glyph was taking. */
+.service-card-icon .rl-ico,
+.area-tab-icon .rl-ico,
+.card-icon .rl-ico,
+.policy-icon .rl-ico,
+.flat-fee-icon .rl-ico,
+.why-icon .rl-ico,
+.situation-icon .rl-ico,
+.value-icon .rl-ico,
+.rh-icon .rl-ico,
+.cl-feature-icon .rl-ico {
+  width: 0.92em;
+  height: 0.92em;
+  vertical-align: -0.08em;
+}
+/* Colour, which the emoji brought with them and a stroked icon does not.
+   Inheriting was not good enough in three places: the pricing and lien cards
+   put their badge on a navy header where the inherited colour is near-black,
+   and the practice-area tabs are anchors, so their icon inherited the
+   browser's default link blue. Stated per surface instead: orange on the dark
+   panels, navy on the light ones, which is the accent logic the rest of the
+   site already follows. */
+.page-pricing .card-icon .rl-ico,
+.page-pricing .flat-fee-icon .rl-ico,
+.page-lien .situation-icon .rl-ico {
+  color: var(--orange-text);
+}
+.page-lien .why-icon .rl-ico,
+.page-about .value-icon .rl-ico,
+.page-pricing .policy-icon .rl-ico,
+.page-practices .area-tab-icon .rl-ico,
+.page-resources .service-card-icon .rl-ico,
+.page-resources .rh-icon .rl-ico,
+.page-clients .cl-feature-icon .rl-ico {
+  color: var(--navy);
+}
+
+/* the icon in a form section heading and in a contact line sits beside text,
+   so it needs the gap a glyph used to bring with it */
+.form-section-title .rl-ico,
+.contact-link .rl-ico,
+.trust-item .rl-ico {
+  margin-right: 0.42em;
+}
+/* a 13px uppercase heading needs its icon a little above the cap height to
+   read as a pair rather than as a speck */
+.form-section-title .rl-ico {
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: -0.28em;
+}
+/* the small flag after "Veteran Owned" in the footer */
+.footer-contact .rl-ico {
+  width: 1.05em;
+  height: 1.05em;
+  vertical-align: -0.2em;
+  margin-left: 0.15em;
+  opacity: 0.75;
+}
+
+
 /* --- 8. ONE TREATMENT FOR PHOTOGRAPHS ------------------------------------
    The feature photographs across the site each had 3px corners, which at that
    radius reads as an accident rather than a decision. They now carry the same
