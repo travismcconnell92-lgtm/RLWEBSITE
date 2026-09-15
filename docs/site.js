@@ -181,6 +181,7 @@
 
   function contactBar() {
     if (document.querySelector('.mobile-consult-bar')) return;   /* page has its own */
+    if (document.body.classList.contains('page-conflicts')) return;   /* the conflict-check form is the page's own call to action; a floating consult button competes with it and points to a different flow */
     var bar = document.createElement('div');
     /* Identical markup to the homepage's bar, so it inherits the same styling
        instead of a lookalike. An earlier version added a Call button that no
