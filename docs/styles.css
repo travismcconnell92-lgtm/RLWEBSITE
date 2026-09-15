@@ -2964,3 +2964,32 @@ footer .back-to-top { display: none; }
     padding: 4px 0 18px;
   }
 }
+
+
+/* --- 10. PRICING CARD HEADERS ---------------------------------------------
+   The icon sat stacked above the heading with its own bottom margin, and the
+   caption below it wrapped to one or two lines depending on how long that
+   card's copy happened to be, so the three navy header blocks landed at
+   different heights. Putting the icon and heading in a row (the caption
+   still gets its own full-width line under them) and giving the header a
+   fixed minimum height fixes both: the icon reads as a pair with the title,
+   and all three blocks line up regardless of caption length. */
+.page-pricing .card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 10px;
+  min-height: 108px;
+  box-sizing: border-box;
+}
+.page-pricing .card-header .card-icon {
+  margin-bottom: 0;
+  line-height: 1;
+}
+.page-pricing .card-header h3 {
+  margin-bottom: 0;
+}
+.page-pricing .card-header p {
+  flex-basis: 100%;
+  margin-top: 8px;
+}
