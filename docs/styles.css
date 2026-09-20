@@ -3026,12 +3026,11 @@ footer .back-to-top { display: none; }
 }
 .page-resources .rh-head .rh-icon {
   margin-bottom: 0;
+  flex-shrink: 0;
 }
-.page-resources .rh-head-text .rh-kicker {
-  margin-bottom: 4px;
-}
-.page-resources .rh-head-text h2 {
+.page-resources .rh-head h2 {
   margin-bottom: 0;
+  font-size: 19px;
 }
 
 .page-resources .service-card-head {
