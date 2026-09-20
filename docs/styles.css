@@ -3384,3 +3384,16 @@ footer .back-to-top { display: none; }
    Resources eyebrow, removed here for the same reason. */
 .page-about .hero-inner::before,
 .page-resources .hero-inner::before { content: none; }
+
+/* --- i. The articles filter did nothing (2026-09-20) ---------------------
+   The filter script sets the hidden attribute on cards that should drop out,
+   which normally makes them display:none through the browser's own stylesheet.
+   But .art-card sets display:flex, and any author rule beats that default, so
+   the cards stayed on screen. Every filter button appeared broken: clicking
+   Evictions still showed all 81 posts, which looked like miscategorisation.
+   The categories were right the whole time. Same guard for the year headings,
+   which the script hides the same way. */
+.page-articles .art-card[hidden],
+.page-articles .art-year[hidden] {
+  display: none;
+}
