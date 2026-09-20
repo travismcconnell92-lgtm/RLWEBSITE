@@ -2993,3 +2993,76 @@ footer .back-to-top { display: none; }
   flex-basis: 100%;
   margin-top: 8px;
 }
+
+
+/* --- Icon+heading rows made horizontal (2026-09-20) ----------------------
+   The value cards (About), the three lead cards and the tool cards
+   (Resources), and the flat-fee cards (Pricing) all had their icon stacked
+   above the heading, three rows of vertical space for what reads fine as
+   one row. This is the same problem the pricing "How We Bill" card-header
+   already had a fix for; these rules put icon and heading in a row here
+   too, and leave the descriptive text on its own line underneath. */
+
+.page-about .value-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.page-about .value-head .value-icon {
+  margin-bottom: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.page-about .value-head h3 {
+  margin-bottom: 0;
+}
+
+.page-resources .rh-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.page-resources .rh-head .rh-icon {
+  margin-bottom: 0;
+}
+.page-resources .rh-head-text .rh-kicker {
+  margin-bottom: 4px;
+}
+.page-resources .rh-head-text h2 {
+  margin-bottom: 0;
+}
+
+.page-resources .service-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--gray);
+}
+.page-resources .service-card-head .service-card-icon {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+.page-resources .service-card-head h3 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.page-pricing .flat-fee-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.page-pricing .flat-fee-head .flat-fee-icon {
+  margin-bottom: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.page-pricing .flat-fee-head h3 {
+  margin-bottom: 0;
+}
