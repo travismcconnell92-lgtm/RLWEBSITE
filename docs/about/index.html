@@ -401,8 +401,10 @@ document.querySelectorAll('form[action*="formspree"]').forEach(function(form) {
     transOut: 'transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.45s ease' };
   if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
   var targets = [];
-  [{ wrap: 'header', items: '.nav-cta' }, { wrap: '.story-aside', items: '.aside-card' },
-   { wrap: '.commitments-grid', items: '.commitment-card' }, { wrap: '.values-grid', items: '.value-card' }]
+  /* Cards are deliberately not listed here. They use the shared card hover
+     in styles.css so that every card on the site behaves the same way. This
+     effect is for buttons and small accents only. */
+  [{ wrap: 'header', items: '.nav-cta' }]
   .forEach(function(def) {
     document.querySelectorAll(def.wrap).forEach(function(root) {
       root.querySelectorAll(def.items).forEach(function(el) {

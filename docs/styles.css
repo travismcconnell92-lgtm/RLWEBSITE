@@ -3093,3 +3093,101 @@ footer .back-to-top { display: none; }
 .page-lientimer .factor-item {
   border-radius: var(--r-md);
 }
+
+/* --- One hover for every card (2026-09-20) -------------------------------
+   Nine card families each had their own hover: lifts of 2px or 3px, four
+   different black shadows, and timings from 0.2s to 0.3s, which is why no
+   two sections felt the same under the mouse. They now share the Resources
+   lead-card hover, a 4px lift with the same soft navy-tinted shadow over
+   0.25s. The navy top edge still fades to orange, and it runs on that same
+   0.25s so the colour reads as part of one motion instead of a second
+   effect at its own speed. */
+.page-home .practice-card,
+.page-practices .service-card,
+.page-pricing .pricing-card,
+.page-about .value-card,
+.page-resources .service-card,
+.page-lien .why-card,
+.page-post .post-related-grid a,
+.page-articles .art-card,
+.page-areas .area-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-top-color 0.25s ease;
+}
+.page-home .practice-card:hover,
+.page-practices .service-card:hover,
+.page-pricing .pricing-card:hover,
+.page-about .value-card:hover,
+.page-resources .service-card:hover,
+.page-lien .why-card:hover,
+.page-post .post-related-grid a:hover,
+.page-articles .art-card:hover,
+.page-areas .area-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 38px rgba(14, 37, 64, 0.13);
+  border-top-color: var(--orange);
+}
+/* the review cards wear their accent down the left edge rather than across
+   the top, so there is no top edge to fade. They take the motion only, and
+   previously had no lift at all. */
+.page-home .rev-card,
+.page-conflicts .rev-card,
+.page-eviction .rev-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.page-home .rev-card:hover,
+.page-conflicts .rev-card:hover,
+.page-eviction .rev-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 38px rgba(14, 37, 64, 0.13);
+}
+/* Re-stated after the rules above, which would otherwise outrank it by
+   coming later in the file: on a phone, a card that has collapsed into a
+   tappable row must not lift and glow when it is tapped. */
+@media (max-width: 960px) {
+  .rl-expand.rl-ready:hover { transform: none; box-shadow: none; }
+}
+
+/* The four card families that the Pricing and About pages used to hand to
+   their proximity script. They have no navy top edge to fade, either because
+   their accent is already orange or because it runs down the left side, so
+   they take the motion alone. The two that sit on a navy panel need a
+   heavier shadow, since the navy-tinted one is invisible against navy. */
+.page-pricing .flat-fee-card,
+.page-pricing .policy-card,
+.page-about .aside-card,
+.page-about .commitment-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.page-pricing .policy-card:hover,
+.page-about .aside-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 38px rgba(14, 37, 64, 0.13);
+}
+.page-pricing .flat-fee-card:hover,
+.page-about .commitment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.38);
+}
+
+/* The lien page revealed these cards with a fill-forwards keyframe, whose
+   final transform outranks any hover transform, so the card took the shadow
+   and the orange edge but never actually lifted. The reveal does the same
+   job as a transition, which hover can then override. */
+.page-lien .why-card {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.page-lien .why-card.visible {
+  animation: none;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.25s ease;
+}
+.page-lien .why-card.visible:hover {
+  transform: translateY(-4px);
+}
+
+/* Re-stated once more so it stays the last word on a phone. */
+@media (max-width: 960px) {
+  .rl-expand.rl-ready:hover { transform: none; box-shadow: none; }
+}
