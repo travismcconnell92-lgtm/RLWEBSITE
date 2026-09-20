@@ -8,7 +8,7 @@
 <meta name="description" content="Conflict check request form for prospective Ready Legal clients. Completed after the consultation, before an engagement agreement is sent.">
 <title>Conflict Check Request | Ready Legal</title>
 
-<link rel="stylesheet" href="../styles.css?v=748fdcfe">
+<link rel="stylesheet" href="../styles.css?v=958b76e5">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://readylegal.net/conflicts/">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
@@ -83,35 +83,35 @@
 <input type="hidden" name="_subject" value="Conflict Check Request - Ready Legal">
 
 <label>First and Last Name</label>
-<input type="text" name="full_name" placeholder="Jane Smith" required aria-label="Jane Smith">
+<input type="text" name="full_name" placeholder="Jane Smith" required aria-label="Jane Smith" autocomplete="name">
 
 <label>Business Name</label>
 <p class="field-note">Leave blank if not applicable</p>
-<input type="text" name="business_name" placeholder="Acme LLC" aria-label="Acme LLC">
+<input type="text" name="business_name" placeholder="Acme LLC" aria-label="Acme LLC" autocomplete="organization">
 
 <label>Mailing Address</label>
-<input type="text" name="mailing_address" placeholder="123 Main St, Orlando, FL 32801" required aria-label="123 Main St, Orlando, FL 32801">
+<input type="text" name="mailing_address" placeholder="123 Main St, Orlando, FL 32801" required aria-label="123 Main St, Orlando, FL 32801" autocomplete="street-address">
 
 <label>Phone Number</label>
-<input type="tel" name="phone" placeholder="(407) 555-0000" required aria-label="(407) 555-0000">
+<input type="tel" name="phone" placeholder="(407) 555-0000" required aria-label="(407) 555-0000" autocomplete="tel">
 
 <label>Email Address</label>
-<input type="email" name="email" placeholder="jane@example.com" required aria-label="jane@example.com">
+<input type="email" name="email" placeholder="jane@example.com" required aria-label="jane@example.com" autocomplete="email">
 
 <label>Adverse Party's Name</label>
 <p class="field-note">The person or entity on the other side of your matter</p>
-<input type="text" name="adverse_party" placeholder="John Doe or XYZ Corp" required aria-label="John Doe or XYZ Corp">
+<input type="text" name="adverse_party" placeholder="John Doe or XYZ Corp" required aria-label="John Doe or XYZ Corp" autocomplete="off">
 
 <label>Other Parties Who May Have an Adverse Interest</label>
 <p class="field-note">List any additional individuals or entities who may be involved</p>
-<textarea rows="3" name="other_adverse_parties" placeholder="e.g., lenders, co-owners, guarantors, subcontractors..." aria-label="e.g., lenders, co-owners, guarantors, subcontractors"></textarea>
+<textarea rows="3" name="other_adverse_parties" placeholder="e.g., lenders, co-owners, guarantors, subcontractors..." aria-label="e.g., lenders, co-owners, guarantors, subcontractors" autocomplete="off"></textarea>
 
 <label>Address of Property in Dispute</label>
 <p class="field-note">Leave blank if no property is involved</p>
-<input type="text" name="property_address" placeholder="456 Oak Ave, Miami, FL 33101" aria-label="456 Oak Ave, Miami, FL 33101">
+<input type="text" name="property_address" placeholder="456 Oak Ave, Miami, FL 33101" aria-label="456 Oak Ave, Miami, FL 33101" autocomplete="off">
 
 <label>Briefly Describe Your Legal Matter</label>
-<textarea rows="5" name="legal_matter_description" placeholder="Please provide a short summary of the issue you need assistance with..." required aria-label="Please provide a short summary of the issue you need assistance with"></textarea>
+<textarea rows="5" name="legal_matter_description" placeholder="Please provide a short summary of the issue you need assistance with..." required aria-label="Please provide a short summary of the issue you need assistance with" autocomplete="off"></textarea>
 
 <label>How Did You Hear About Us?</label>
 <select name="referral_source" required aria-label="Referral Source">
@@ -469,6 +469,96 @@ State of Florida.
   });
 
   restart();
+}());
+</script>
+
+<!-- FORM SUBMIT: iOS Safari does not always serialize autofilled fields on a
+     native POST, so an autofilled submission can reach Formspree empty or not
+     at all. Reading the values in JS and sending them as JSON avoids that.
+     Two differences from the home page copy of this fix: this one respects
+     which radio or checkbox is actually checked (that version overwrites each
+     group with its last option regardless of what the visitor picked), and it
+     listens for the browser's own invalid event so a phone visitor is told, in
+     the page, which field stopped the form, instead of only getting a tooltip
+     that may be scrolled off screen. -->
+<script>
+(function () {
+  var form = document.querySelector('form[action*="formspree"]');
+  if (!form) return;
+  var btn = form.querySelector('button[type="submit"]');
+  var label = btn ? btn.textContent : '';
+  var PHONE = '(407) 258-2002';
+  var announced = false;
+
+  function status(msg, good) {
+    var el = form.querySelector('.form-status');
+    if (!el) {
+      el = document.createElement('p');
+      el.className = 'form-status';
+      el.setAttribute('role', 'status');
+      if (btn && btn.parentNode) btn.parentNode.insertBefore(el, btn);
+      else form.appendChild(el);
+    }
+    el.textContent = msg;
+    el.style.color = good ? '#1a7f4b' : '#c53030';
+    el.style.fontSize = '14px';
+    el.style.fontWeight = '600';
+    el.style.margin = '0 0 12px';
+  }
+
+  /* The browser fires invalid on each failing control before it shows its own
+     tooltip. The first one is the one worth scrolling to. */
+  form.addEventListener('invalid', function (e) {
+    var el = e.target;
+    if (el.type !== 'radio' && el.type !== 'checkbox') el.style.borderColor = '#e53e3e';
+    if (announced) return;
+    announced = true;
+    status('Please complete the highlighted field, then submit again.', false);
+    setTimeout(function () {
+      try { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (err) { el.scrollIntoView(); }
+      announced = false;
+    }, 0);
+  }, true);
+
+  form.addEventListener('input', function (e) {
+    if (e.target && e.target.style) e.target.style.borderColor = '';
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var data = {};
+    form.querySelectorAll('input, textarea, select').forEach(function (el) {
+      if (!el.name || el.disabled) return;
+      if (el.type === 'radio' || el.type === 'checkbox') {
+        if (!el.checked) return;
+        data[el.name] = (data[el.name] === undefined) ? el.value : data[el.name] + ', ' + el.value;
+      } else if (el.multiple && el.selectedOptions) {
+        data[el.name] = Array.prototype.map.call(el.selectedOptions, function (o) { return o.value; }).join(', ');
+      } else {
+        data[el.name] = el.value;
+      }
+    });
+
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+    status('Sending your request...', true);
+
+    function failed() {
+      if (btn) { btn.disabled = false; btn.textContent = label; }
+      status('That did not go through. Please call us at ' + PHONE + ' and we will take your information by phone.', false);
+    }
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (r) {
+      if (!r.ok) return failed();
+      if (btn) { btn.textContent = 'Sent'; btn.disabled = true; }
+      status('Received. We will review this and follow up shortly.', true);
+      form.reset();
+    }).catch(failed);
+  });
 }());
 </script>
 </body>

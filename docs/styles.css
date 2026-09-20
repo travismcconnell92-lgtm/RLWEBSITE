@@ -3191,3 +3191,134 @@ footer .back-to-top { display: none; }
 @media (max-width: 960px) {
   .rl-expand.rl-ready:hover { transform: none; box-shadow: none; }
 }
+
+/* ==========================================================================
+   CONSISTENCY PASS (2026-09-20) — items from the site audit.
+   Grouped and commented so any one of them can be lifted back out.
+   ========================================================================== */
+
+/* --- a. One size for section headings -------------------------------------
+   The shared rule said clamp(28px, 3.5vw, 42px) but five pages overrode it
+   with 36px and Pricing with 38px, so the same heading arrived at three
+   sizes with 16px, 20px or 40px beneath it. Everything now uses the value
+   the majority of pages already had. The visible change is on the home
+   page, whose headings come down from 42px. */
+.section-title,
+.page-home .section-title,
+.page-counsel .section-title,
+.page-practices .section-title,
+.page-pricing .section-title,
+.page-about .section-title,
+.page-lien .section-title,
+.page-resources .section-title {
+  font-size: clamp(24px, 3vw, 36px);
+  margin-bottom: 20px;
+}
+/* two that carry their own deliberate spacing inside a band */
+.page-home .rec-text .section-title { font-size: 30px; margin-bottom: 0; }
+.page-pricing .flat-fee-inner .section-title { margin-bottom: 12px; }
+.page-lien .situations-inner .section-title { margin-bottom: 48px; }
+
+/* --- b. Section eyebrows all look the same --------------------------------
+   The Resources page was the only one that drew a short orange rule before
+   its eyebrow and centred it. Every other eyebrow on the site is plain and
+   left aligned, so this drops the rule and the centring. */
+.page-resources .area-eyebrow::before { content: none; }
+.page-resources .area-eyebrow { display: block; }
+.page-resources .tools-label { justify-content: flex-start; }
+
+/* --- c. Every card rests the same way -------------------------------------
+   Only the Resources lead cards and the review cards had a resting shadow,
+   so eleven other card families sat flat against the page until hovered.
+   They now share the resting shadow of the cards you picked as the model.
+   Cards on a navy panel need more alpha to register against navy. */
+.page-home .practice-card,
+.page-practices .service-card,
+.page-pricing .pricing-card,
+.page-pricing .policy-card,
+.page-about .value-card,
+.page-about .aside-card,
+.page-resources .service-card,
+.page-lien .why-card,
+.page-post .post-related-grid a,
+.page-articles .art-card,
+.page-areas .area-card {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+.page-pricing .flat-fee-card,
+.page-about .commitment-card,
+.page-lien .situation-card {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.22);
+}
+
+/* --- d. The compact card headings match each other ------------------------
+   The small uppercase card headings were set at 14px, 14.5px and 15px with
+   three different letter-spacings. One value now. The lien page's why-card
+   was the odd one out in Title Case at 15px while the cards further down
+   that same page were uppercase at 14px, so it joins them. */
+.page-resources .service-card h3,
+.page-pricing .card-header h3,
+.page-pricing .flat-fee-card h3,
+.page-pricing .policy-card h3,
+.page-about .value-card h3,
+.page-about .commitment-card h3,
+.page-lien .situation-card h3,
+.page-lien .why-card h3 {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+/* --- e. Lien page icons beside their heading ------------------------------
+   The last two card families still stacking the icon above the heading. */
+.page-lien .why-card-head,
+.page-lien .situation-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.page-lien .why-card-head .why-icon,
+.page-lien .situation-card-head .situation-icon {
+  margin-bottom: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.page-lien .why-card-head h3,
+.page-lien .situation-card-head h3 {
+  margin-bottom: 0;
+}
+
+/* --- f. The situation cards had no hover at all ---------------------------
+   Everything else on the site lifts, so these did too little. */
+.page-lien .situation-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.page-lien .situation-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.38);
+}
+
+/* Re-stated last, so a collapsed row on a phone still does not lift. */
+@media (max-width: 960px) {
+  .rl-expand.rl-ready:hover { transform: none; box-shadow: none; }
+}
+
+/* --- g. The Super Lawyers and Best Lawyers badges ------------------------
+   These were still being driven by the home page proximity script, which
+   swelled them 7% and brightened them as the cursor approached. They are
+   cards, so they now rest and lift like the rest. Their orange accent runs
+   down the left edge, so there is no top edge to fade.
+   The lift is held behind a hover query because these badges carry a
+   tooltip that is positioned against a different ancestor on phones, and a
+   transform on the badge would become its containing block and move it. */
+.page-home .rec-badge {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+@media (hover: hover) {
+  .page-home .rec-badge:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 38px rgba(14, 37, 64, 0.13);
+  }
+}
