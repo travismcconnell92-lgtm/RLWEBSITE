@@ -3065,3 +3065,31 @@ footer .back-to-top { display: none; }
 .page-pricing .flat-fee-head h3 {
   margin-bottom: 0;
 }
+
+/* --- Card corners rounded (2026-09-20) -----------------------------------
+   Most card surfaces were still on the original 2px corner, which reads as
+   square next to the 12px the rest of the design system now uses. These put
+   every card on the --r-md token, which the token list at the top of this
+   file already designates for cards. The large Resources panels keep --r-lg
+   because they are panels rather than cards, and the photographs keep the
+   radius the polish layer gave them. */
+.page-counsel .profile-name-card,
+.page-counsel .meta-section,
+.page-counsel .service-col,
+.page-practices .service-card,
+.page-pricing .pricing-card,
+.page-pricing .flat-fee-card,
+.page-pricing .policy-card,
+.page-about .aside-card,
+.page-about .commitment-card,
+.page-about .value-card,
+.page-resources .service-card,
+.page-lien .why-card,
+.page-lien .situation-card,
+.page-lien .what-you-need,
+.page-lientimer .result-countdown,
+.page-lientimer .result-disclaimer,
+.page-lientimer .edu-card,
+.page-lientimer .factor-item {
+  border-radius: var(--r-md);
+}
