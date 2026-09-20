@@ -3322,3 +3322,65 @@ footer .back-to-top { display: none; }
     box-shadow: 0 14px 38px rgba(14, 37, 64, 0.13);
   }
 }
+
+/* --- h. One header line, one look (2026-09-20) ---------------------------
+   The line above each page title was worded three different ways, sat above
+   the title on four pages and below it on three, and was styled two ways:
+   orange at 11px on Counsel, Practice Areas, Pricing and the lien page, and
+   translucent white at 12px on About, Resources and Clients. The wording and
+   the position are fixed in the pages themselves; this settles the look.
+   Orange is the choice because every other eyebrow on the site is orange.
+   The Conflicts and Eviction pages had no rule at all, since they never
+   carried this line before. The fade that About and Resources already do is
+   left in place, because these rules do not touch opacity or animation. */
+.page-counsel .hero-eyebrow,
+.page-practices .hero-eyebrow,
+.page-pricing .hero-eyebrow,
+.page-about .hero-eyebrow,
+.page-resources .hero-eyebrow,
+.page-conflicts .hero-eyebrow,
+.page-eviction .hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange-text);
+  margin: 0 0 16px;
+}
+@media (max-width: 960px) {
+  .page-counsel .hero-eyebrow,
+  .page-practices .hero-eyebrow,
+  .page-pricing .hero-eyebrow,
+  .page-about .hero-eyebrow,
+  .page-resources .hero-eyebrow,
+  .page-conflicts .hero-eyebrow,
+  .page-eviction .hero-eyebrow {
+    letter-spacing: 2px;
+    margin: 0 0 20px;
+  }
+}
+
+/* Two corrections found by reading the rendered pages back.
+
+   The Conflicts and Eviction pages set every paragraph in their hero to 16px
+   and centre it, which is more specific than the header-line rule above, so
+   the line came out at 16px. These match that specificity and keep the
+   centring those two heroes are built around. */
+.page-conflicts .hero .hero-eyebrow,
+.page-eviction .hero .hero-eyebrow {
+  font-size: 11px;
+  max-width: none;
+  margin: 0 auto 16px;
+}
+
+/* The contrast layer re-declares the orange token to its bright variant on
+   every dark surface so orange text stays legible. The Service Areas hero is
+   navy but was missed, so its header line was rendering in the dark orange
+   meant for white backgrounds, at around 2:1 against the navy. */
+.page-areas .areas-hero { --orange-text: var(--orange); }
+
+/* The About and Resources heroes were the only two drawing a short orange
+   rule above the header line. Same flourish that was removed from the
+   Resources eyebrow, removed here for the same reason. */
+.page-about .hero-inner::before,
+.page-resources .hero-inner::before { content: none; }
