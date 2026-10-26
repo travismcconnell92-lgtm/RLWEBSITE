@@ -145,6 +145,7 @@
   function heroVideo() {
     document.querySelectorAll('video[data-hero]').forEach(function (v) {
       if (v.dataset.rlBuilt) return;
+      v.dataset.rlBuilt = '1';
       var stem  = v.dataset.hero;
       var small = MOBILE.matches;
       var base  = small ? stem + '-mobile' : stem;
@@ -153,15 +154,77 @@
          would throw that head start away; only the phone needs the smaller
          crop, and the phone does not show the frosted panel anyway. */
       if (small) v.poster = base + '-poster.jpg';
+
+      /* Phones only autoplay a video that is muted and inline as live
+         properties, not just as attributes in the markup. */
+      v.muted = true;
+      v.defaultMuted = true;
+      v.playsInline = true;
+      v.setAttribute('playsinline', '');
+      v.setAttribute('webkit-playsinline', '');
+
       var s = document.createElement('source');
       s.src = base + '.mp4';
       s.type = 'video/mp4';
       v.appendChild(s);
       v.preload = 'auto';
       v.load();
-      var p = v.play();
-      if (p && p.catch) p.catch(function () {});   /* autoplay refused, poster stands in */
-      v.dataset.rlBuilt = '1';
+
+      /* One refused play() used to be the end of it, and the poster stayed up
+         for good. A phone refuses autoplay at first load for several ordinary
+         reasons: Low Power Mode, a slow connection that has not buffered yet,
+         or a refresh that restores the page from memory. So try again at each
+         moment the browser is likely to say yes. */
+      function kick() {
+        if (!v.paused && !v.ended) return;
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      }
+
+      kick();
+      ['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough', 'stalled', 'suspend'].forEach(function (ev) {
+        v.addEventListener(ev, kick);
+      });
+
+      /* Back/forward and some refreshes restore the page from memory with the
+         video paused, and switching back to the tab pauses it as well. */
+      window.addEventListener('pageshow', kick);
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) kick();
+      });
+
+      /* A phone pauses a video that has scrolled out of view. Start it again
+         when it comes back. */
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          if (entries[0] && entries[0].isIntersecting) kick();
+        }, { threshold: 0.1 }).observe(v);
+      }
+
+      /* Low Power Mode blocks autoplay until the visitor touches the page.
+         The first touch is the earliest moment the phone allows playback. */
+      function onGesture() {
+        kick();
+        if (!v.paused) {
+          ['touchstart', 'touchend', 'click', 'keydown'].forEach(function (ev) {
+            document.removeEventListener(ev, onGesture, true);
+          });
+        }
+      }
+      ['touchstart', 'touchend', 'click', 'keydown'].forEach(function (ev) {
+        document.addEventListener(ev, onGesture, true);
+      });
+
+      /* Short retries cover a first load on a slow connection. */
+      [400, 1200, 2500, 5000].forEach(function (ms) { setTimeout(kick, ms); });
+
+      /* If the file itself fails to load, try the request once more. */
+      var retried = false;
+      s.addEventListener('error', function () {
+        if (retried) return;
+        retried = true;
+        setTimeout(function () { v.load(); kick(); }, 800);
+      });
     });
   }
 

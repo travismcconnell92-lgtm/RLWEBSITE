@@ -3397,3 +3397,56 @@ footer .back-to-top { display: none; }
 .page-articles .art-year[hidden] {
   display: none;
 }
+
+
+/* ------------------------------------------------------------------
+   Justified body text (tablet and desktop)
+   Body paragraphs and list items are justified with automatic hyphenation
+   so word gaps stay even. Short centered lines, labels, narrow cards,
+   sidebars, headers, footers and forms keep their own alignment. Phones
+   (600px and under) keep the existing left or centered text, because a
+   column that narrow turns justified text into rivers.
+   Specificity of the base rule is deliberately low (0,0,2) so any existing
+   class rule that sets its own alignment still wins.
+   ------------------------------------------------------------------ */
+@media (min-width: 601px) {
+  :is(p, li):not(:is(footer, header, nav, form, aside, button, a) *) {
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  /* Centered short lines: keep centered */
+  .process-step p,
+  .reviews-right p,
+  .press-section p,
+  .pullquote-attr,
+  .mob-atty-section p,
+  .art-hero p,
+  .areas-hero p,
+  p.centered {
+    text-align: center;
+  }
+
+  /* Centered multi-line intros: straight edges, last line stays centered */
+  .pullquote-text,
+  .art-hero .art-hero-sub,
+  .areas-hero .areas-hero-sub,
+  .section-sub.centered {
+    text-align: justify;
+    text-align-last: center;
+    hyphens: auto;
+  }
+
+  /* Narrow cards, slider quotes and short lists: keep left aligned */
+  .commitment-card p,
+  .value-card p,
+  .flat-fee-card p,
+  .why-card p,
+  .situation-card p,
+  .rh-card p,
+  .rec-text p,
+  .rev-card p,
+  .service-col li {
+    text-align: start;
+  }
+}
