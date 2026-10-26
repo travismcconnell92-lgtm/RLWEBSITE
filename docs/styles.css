@@ -3400,16 +3400,16 @@ footer .back-to-top { display: none; }
 
 
 /* ------------------------------------------------------------------
-   Justified body text (tablet and desktop)
+   Justified body text
    Body paragraphs and list items are justified with automatic hyphenation
    so word gaps stay even. Short centered lines, labels, narrow cards,
-   sidebars, headers, footers and forms keep their own alignment. Phones
-   (600px and under) keep the existing left or centered text, because a
-   column that narrow turns justified text into rivers.
+   sidebars, headers, footers and forms keep their own alignment. This
+   applies on phones too; hyphenation keeps the word gaps in check in the
+   narrow column.
    Specificity of the base rule is deliberately low (0,0,2) so any existing
    class rule that sets its own alignment still wins.
    ------------------------------------------------------------------ */
-@media (min-width: 601px) {
+@media all {
   :is(p, li):not(:is(footer, header, nav, form, aside, button, a) *) {
     text-align: justify;
     hyphens: auto;
@@ -3429,6 +3429,7 @@ footer .back-to-top { display: none; }
 
   /* Centered multi-line intros: straight edges, last line stays centered */
   .pullquote-text,
+  .mob-atty-section .mob-atty-bio,
   .art-hero .art-hero-sub,
   .areas-hero .areas-hero-sub,
   .section-sub.centered {
